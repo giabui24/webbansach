@@ -23,25 +23,25 @@
             </ol>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <a href="shop-grid.html"><img class="d-block w-100" src='<c:url value="images/banner/banner.jpg"/>' alt="banner 1"></a>
+                    <a href="shop-grid.html"><img class="d-block w-100" src='<c:url value="/resources/images/banner/banner.jpg"/>' alt="banner 1"></a>
                 </div>
                 <div class="carousel-item">
-                    <a href="shop-grid.html"><img class="d-block w-100" src='<c:url value="images/banner/banner1.jpg"/>'
+                    <a href="shop-grid.html"><img class="d-block w-100" src='<c:url value="/resources/images/banner/banner1.jpg"/>'
 
                             alt="banner 2"></a>
                 </div>
                 <div class="carousel-item">
-                    <a href="shop-grid.html"><img class="d-block w-100" src='<c:url value="images/banner/banner4.jpg"/>'
+                    <a href="shop-grid.html"><img class="d-block w-100" src='<c:url value="/resources/images/banner/banner4.jpg"/>'
                          alt="banner 3"></a>
                 </div>
             </div>
             <!-- Controls -->
             <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
-                <span aria-hidden="true"><img class="pre" src="images/icons/prev.png" height="45" width="50"/></span>
+                <span aria-hidden="true"><img class="pre" src='<c:url value="/resources/images/icons/prev.png"/>' height="45" width="50"/></span>
                 <span class="sr-only">Previous</span>
             </a>
             <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
-                <span aria-hidden="true"><img class="next" src="images/icons/next.png" height="45" width="50"/></span>
+                <span aria-hidden="true"><img class="next" src='<c:url value="/resources/images/icons/next.png"/>' height="45" width="50"/></span>
                 <span class="sr-only">Next</span>
             </a>
         </div>
@@ -82,7 +82,7 @@
                             <li>50.000đ</li>
                         </ul>
                         <ul class="prize d-flex">
-                            <li class="old_prize">${sanpham. getGiatien()}đ</li>
+                            <li class="old_prize">${sanpham.getGiatien()}đ</li>
                         </ul>
 
                         <div class="action">
@@ -169,26 +169,27 @@
                 <li data-target="#myCarousel1" data-slide-to="1"></li>
                 <li data-target="#myCarousel1" data-slide-to="2"></li>
             </ol>
+            <%--                 '<c:url value="/resources/css/custom.css"/>' --%>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <a href="shop-grid.html"><img class="d-block w-100" src="images/banner/banner5.jpg" alt="banner 1"></a>
+                    <a href="shop-grid.html"><img class="d-block w-100" src= '<c:url value="/resources/images/banner/banner5.jpg"/>' alt="banner 1"></a>
                 </div>
                 <div class="carousel-item">
-                    <a href="shop-grid.html"><img class="d-block w-100" src="images/banner/banner2.jpg"
+                    <a href="shop-grid.html"><img class="d-block w-100" src='<c:url value="/resources/images/banner/banner2.jpg"/>'
                                                   alt="banner 2"></a>
                 </div>
                 <div class="carousel-item">
-                    <a href="shop-grid.html"><img class="d-block w-100" src="images/banner/banner6.jpg"
+                    <a href="shop-grid.html"><img class="d-block w-100" src='<c:url value="/resources/images/banner/banner6.jpg"/>'
                                                   alt="banner 3"></a>
                 </div>
             </div>
             <!-- Controls -->
             <a class="carousel-control-prev" href="#myCarousel1" role="button" data-slide="prev">
-                <span aria-hidden="true"><img class="pre" src="images/icons/prev.png" height="45" width="50"/></span>
+                <span aria-hidden="true"><img class="pre" src='<c:url value="/resources/images/icons/prev.png"/>' height="45" width="50"/></span>
                 <span class="sr-only">Previous</span>
             </a>
             <a class="carousel-control-next" href="#myCarousel1" role="button" data-slide="next">
-                <span aria-hidden="true"><img class="next" src="images/icons/next.png"/></span>
+                <span aria-hidden="true"><img class="next" src='<c:url value="/resources/images/icons/next.png"/>'/></span>
                 <span class="sr-only">Next</span>
             </a>
         </div>
@@ -221,26 +222,31 @@
         </div>
         <div class="tab__container mt--60">
             <!-- Start Single Tab Content -->
-            <div class="row single__tab tab-pane fade show active" id="nav-all" role="tabpanel">
-                <div class="product__indicator--4 furniture--4v2 arrows_style owl-carousel owl-theme">
-                    <div class="single__product">
+           
+            <!-- Tat ca san pham -->
+             <div class="row single__tab tab-pane fade show active" id="nav-all" role="tabpanel">
+              <div class="product__indicator--4 furniture--4v2 arrows_style owl-carousel owl-theme">
+            <c:forEach var="sanpham" items="${listSanPham}">
+            
+             <div class="single__product">
                         <!-- Start Single Product -->
                         <div class="product product__style--3">
                             <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                            
                                 <div class="product__thumb">
-                                    <a class="first__img" href="single-product.html"><img src="images/books/2-6.jpg"
+                                    <a class="first__img" href="single-product.html"><img src='<c:url value="${sanpham.getHinhsanpham()}"/>'
                                                                                           alt="product image"></a>
                                     <div class="hot__box color--2">
                                         <span class="hot-label">10%</span>
                                     </div>
                                 </div>
                                 <div class="product__content content--center">
-                                    <h4><a href="single-product.html">Miền đất hứa</a></h4>
+                                    <h4><a href="single-product.html">${sanpham.getTensanpham()}</a></h4>
                                     <ul class="prize d-flex">
                                         <li>43.000đ</li>
                                     </ul>
                                     <ul class="prize d-flex">
-                                        <li class="old_prize">48.000đ</li>
+                                        <li class="old_prize">${sanpham.getGiatien()}đ</li>
                                     </ul>
 
                                     <div class="action">
@@ -266,440 +272,41 @@
                                 </div>
                             </div>
                             <!-- Start Single Product -->
-                        </div>
-                        <!-- Start Single Product -->
-                        <!-- Start Single Product -->
-                        <div class="product product__style--3">
-                            <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                                <div class="product__thumb">
-                                    <a class="first__img" href="single-product.html"><img src="images/books/8.jpg"
-                                                                                          alt="product image"></a>
-                                    <div class="hot__box">
-                                        <span class="hot-label">15%</span>
-                                    </div>
-                                </div>
-                                <div class="product__content content--center">
-                                    <h4><a href="single-product.html">Đảo mộng mơ</a></h4>
-                                    <ul class="prize d-flex">
-                                        <li>47.000đ</li>
-                                    </ul>
-                                    <ul class="prize d-flex">
-                                        <li class="old_prize">56.000đ</li>
-                                    </ul>
-
-                                    <div class="action">
-                                        <div class="actions_inner">
-                                            <ul class="add_to_links">
-                                                <li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a>
-                                                </li>
-                                                <li><a class="compare" href="wishlist.html"><i
-                                                        class="bi bi-heart-beat"></i></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="product__hover--content">
-                                        <ul class="rating d-flex">
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                        </ul>
-                                    </div>
-                                </div>
                             </div>
-                            <!-- Start Single Product -->
-                        </div>
-                        <!-- Start Single Product -->
+                            </div>
+                            
+                         
+            </c:forEach>
                     </div>
-                    <div class="single__product">
-                        <!-- Start Single Product -->
-                        <div class="product product__style--3">
-                            <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                                <div class="product__thumb">
-                                    <a class="first__img" href="single-product.html"><img src="images/books/9.jpg"
-                                                                                          alt="product image"></a>
-                                    <div class="hot__box">
-                                        <span class="hot-label">12%</span>
-                                    </div>
-                                </div>
-                                <div class="product__content content--center">
-                                    <h4><a href="single-product.html">Hà Nội, mũ rơm và tem phiếu</a></h4>
-                                    <ul class="prize d-flex">
-                                        <li>32.000đ</li>
-                                    </ul>
-                                    <ul class="prize d-flex">
-                                        <li class="old_prize">36.000đ</li>
-                                    </ul>
-
-                                    <div class="action">
-                                        <div class="actions_inner">
-                                            <ul class="add_to_links">
-                                                <li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a>
-                                                </li>
-                                                <li><a class="compare" href="wishlist.html"><i
-                                                        class="bi bi-heart-beat"></i></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="product__hover--content">
-                                        <ul class="rating d-flex">
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Start Single Product -->
-                        </div>
-                        <!-- Start Single Product -->
-                        <!-- Start Single Product -->
-                        <div class="product product__style--3">
-                            <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                                <div class="product__thumb">
-                                    <a class="first__img" href="single-product.html"><img src="images/books/10.jpg"
-                                                                                          alt="product image"></a>
-                                    <div class="hot__box color--2">
-                                        <span class="hot-label">15%</span>
-                                    </div>
-                                </div>
-                                <div class="product__content content--center">
-                                    <h4><a href="single-product.html">Lê la quán xá quê nhà</a></h4>
-                                    <ul class="prize d-flex">
-                                        <li>85.000đ</li>
-                                    </ul>
-                                    <ul class="prize d-flex">
-                                        <li class="old_prize">100.000đ</li>
-                                    </ul>
-
-                                    <div class="action">
-                                        <div class="actions_inner">
-                                            <ul class="add_to_links">
-                                                <li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a>
-                                                </li>
-                                                <li><a class="compare" href="wishlist.html"><i
-                                                        class="bi bi-heart-beat"></i></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="product__hover--content">
-                                        <ul class="rating d-flex">
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Start Single Product -->
-                        </div>
-                        <!-- Start Single Product -->
                     </div>
-                    <div class="single__product">
-                        <!-- Start Single Product -->
-                        <div class="product product__style--3">
-                            <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                                <div class="product__thumb">
-                                    <a class="first__img" href="single-product.html"><img src="images/books/1.jpg"
-                                                                                          alt="product image"></a>
-                                    <div class="hot__box color--2">
-                                        <span class="hot-label">5%</span>
-                                    </div>
-                                </div>
-                                <div class="product__content content--center">
-                                    <h4><a href="single-product.html">Nhất quỷ nhì ma, thứ ba Takagi</a></h4>
-                                    <ul class="prize d-flex">
-                                        <li>41.500đ</li>
-                                    </ul>
-                                    <ul class="prize d-flex">
-                                        <li class="old_prize">44.000đ</li>
-                                    </ul>
-
-                                    <div class="action">
-                                        <div class="actions_inner">
-                                            <ul class="add_to_links">
-                                                <li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a>
-                                                </li>
-                                                <li><a class="compare" href="wishlist.html"><i
-                                                        class="bi bi-heart-beat"></i></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="product__hover--content">
-                                        <ul class="rating d-flex">
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Start Single Product -->
-                        </div>
-                        <!-- Start Single Product -->
-                        <!-- Start Single Product -->
-                        <div class="product product__style--3">
-                            <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                                <div class="product__thumb">
-                                    <a class="first__img" href="single-product.html"><img src="images/books/2-12.jpg"
-                                                                                          alt="product image"></a>
-                                    <div class="hot__box">
-                                        <span class="hot-label">8%</span>
-                                    </div>
-                                </div>
-                                <div class="product__content content--center">
-                                    <h4><a href="single-product.html">Siêu quậy Teppei</a></h4>
-                                    <ul class="prize d-flex">
-                                        <li>51.800đ</li>
-                                    </ul>
-                                    <ul class="prize d-flex">
-                                        <li class="old_prize">55.000đ</li>
-                                    </ul>
-
-                                    <div class="action">
-                                        <div class="actions_inner">
-                                            <ul class="add_to_links">
-                                                <li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a>
-                                                </li>
-                                                <li><a class="compare" href="wishlist.html"><i
-                                                        class="bi bi-heart-beat"></i></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="product__hover--content">
-                                        <ul class="rating d-flex">
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Start Single Product -->
-                        </div>
-                        <!-- Start Single Product -->
                     </div>
-                    <div class="single__product">
-                        <!-- Start Single Product -->
-                        <div class="product product__style--3">
-                            <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                                <div class="product__thumb">
-                                    <a class="first__img" href="single-product.html"><img src="images/books/13.jpg"
-                                                                                          alt="product image"></a>
-                                    <div class="hot__box color--2">
-                                        <span class="hot-label">12%</span>
-                                    </div>
-                                </div>
-                                <div class="product__content content--center">
-                                    <h4><a href="single-product.html">Ung thư, tin đồn và sự thật</a></h4>
-                                    <ul class="prize d-flex">
-                                        <li>58.700đ</li>
-                                    </ul>
-                                    <ul class="prize d-flex">
-                                        <li class="old_prize">66.000đ</li>
-                                    </ul>
-
-                                    <div class="action">
-                                        <div class="actions_inner">
-                                            <ul class="add_to_links">
-                                                <li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a>
-                                                </li>
-                                                <li><a class="compare" href="wishlist.html"><i
-                                                        class="bi bi-heart-beat"></i></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="product__hover--content">
-                                        <ul class="rating d-flex">
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Start Single Product -->
-                        </div>
-                        <!-- Start Single Product -->
-                        <!-- Start Single Product -->
-                        <div class="product product__style--3">
-                            <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                                <div class="product__thumb">
-                                    <a class="first__img" href="single-product.html"><img src="images/books/14.jpg"
-                                                                                          alt="product image"></a>
-                                    <div class="hot__box">
-                                        <span class="hot-label">18%</span>
-                                    </div>
-                                </div>
-                                <div class="product__content content--center">
-                                    <h4><a href="single-product.html">Hẹn gặp em</a></h4>
-                                    <ul class="prize d-flex">
-                                        <li>64.000đ</li>
-                                    </ul>
-                                    <ul class="prize d-flex">
-                                        <li class="old_prize">78.000đ</li>
-                                    </ul>
-
-                                    <div class="action">
-                                        <div class="actions_inner">
-                                            <ul class="add_to_links">
-                                                <li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a>
-                                                </li>
-                                                <li><a class="compare" href="wishlist.html"><i
-                                                        class="bi bi-heart-beat"></i></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="product__hover--content">
-                                        <ul class="rating d-flex">
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Start Single Product -->
-                        </div>
-                        <!-- Start Single Product -->
-                    </div>
-                    <div class="single__product">
-                        <!-- Start Single Product -->
-                        <div class="product product__style--3">
-                            <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                                <div class="product__thumb">
-                                    <a class="first__img" href="single-product.html"><img src="images/books/15.jpg"
-                                                                                          alt="product image"></a>
-                                    <div class="hot__box">
-                                        <span class="hot-label">15%</span>
-                                    </div>
-                                </div>
-                                <div class="product__content content--center">
-                                    <h4><a href="single-product.html">Búp bê đường vòng</a></h4>
-                                    <ul class="prize d-flex">
-                                        <li>109.650đ</li>
-                                    </ul>
-                                    <ul class="prize d-flex">
-                                        <li class="old_prize">129.000đ</li>
-                                    </ul>
-
-                                    <div class="action">
-                                        <div class="actions_inner">
-                                            <ul class="add_to_links">
-                                                <li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a>
-                                                </li>
-                                                <li><a class="compare" href="wishlist.html"><i
-                                                        class="bi bi-heart-beat"></i></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="product__hover--content">
-                                        <ul class="rating d-flex">
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Start Single Product -->
-                        </div>
-                        <!-- Start Single Product -->
-                        <!-- Start Single Product -->
-                        <div class="product product__style--3">
-                            <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                                <div class="product__thumb">
-                                    <a class="first__img" href="single-product.html"><img src="images/books/16.jpg"
-                                                                                          alt="product image"></a>
-                                    <a class="second__img animation1" href="single-product.html"><img
-                                            src="images/books/2.jpg"
-                                            alt="product image"></a>
-                                    <div class="hot__box color--2">
-                                        <span class="hot-label">18%</span>
-                                    </div>
-                                </div>
-                                <div class="product__content content--center">
-                                    <h4><a href="single-product.html">Đọc thầm - Tập 1.2</a></h4>
-                                    <ul class="prize d-flex">
-                                        <li>230.000đ</li>
-                                    </ul>
-                                    <ul class="prize d-flex">
-                                        <li class="old_prize">283.000đ</li>
-                                    </ul>
-
-                                    <div class="action">
-                                        <div class="actions_inner">
-                                            <ul class="add_to_links">
-                                                <li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a>
-                                                </li>
-                                                <li><a class="compare" href="wishlist.html"><i
-                                                        class="bi bi-heart-beat"></i></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="product__hover--content">
-                                        <ul class="rating d-flex">
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Start Single Product -->
-                        </div>
-                        <!-- Start Single Product -->
-                    </div>
-                </div>
-            </div>
+                    
+                   
+                   
             <!-- End Single Tab Content -->
             <!-- Start Single Tab Content -->
+            <!-- End tat ca san pham -->
             <div class="row single__tab tab-pane fade" id="nav-biographic" role="tabpanel">
                 <div class="product__indicator--4 furniture--4v2 arrows_style owl-carousel owl-theme">
-                    <div class="single__product">
+                <c:forEach var="sanpham" items="${listSanPham}">
+                <div class="single__product">
                         <!-- Start Single Product -->
                         <div class="product product__style--3">
                             <div class="col-lg-3 col-md-4 col-sm-6 col-12">
                                 <div class="product__thumb">
-                                    <a class="first__img" href="single-product.html"><img src="images/books/2-1.jpg"
+                                    <a class="first__img" href="single-product.html"><img src='<c:url value="${sanpham.getHinhsanpham()}"/>'
                                                                                           alt="product image"></a>
                                     <div class="hot__box">
                                         <span class="hot-label">10%</span>
                                     </div>
                                 </div>
                                 <div class="product__content content--center">
-                                    <h4><a href="single-product.html">Conan - Tập 61</a></h4>
+                                    <h4><a href="single-product.html">${sanpham.getTensanpham()}</a></h4>
                                     <ul class="prize d-flex">
                                         <li>34.000đ</li>
                                     </ul>
                                     <ul class="prize d-flex">
-                                        <li class="old_prize">38.000đ</li>
+                                        <li class="old_prize">${sanpham.getGiatien()}đ</li>
                                     </ul>
 
                                     <div class="action">
@@ -724,450 +331,41 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- Start Single Product -->
-                        </div>
-                        <!-- Start Single Product -->
-                        <!-- Start Single Product -->
-                        <div class="product product__style--3">
-                            <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                                <div class="product__thumb">
-                                    <a class="first__img" href="single-product.html"><img src="images/books/2-2.jpg"
-                                                                                          alt="product image"></a>
-                                    <div class="hot__box color--2">
-                                        <span class="hot-label">12%</span>
-                                    </div>
-                                </div>
-                                <div class="product__content content--center">
-                                    <h4><a href="single-product.html">Conan - Tập 2</a></h4>
-                                    <ul class="prize d-flex">
-                                        <li>32.000đ</li>
-                                    </ul>
-                                    <ul class="prize d-flex">
-                                        <li class="old_prize">38.000đ</li>
-                                    </ul>
-
-                                    <div class="action">
-                                        <div class="actions_inner">
-                                            <ul class="add_to_links">
-                                                <li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a>
-                                                </li>
-                                                <li><a class="compare" href="wishlist.html"><i
-                                                        class="bi bi-heart-beat"></i></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="product__hover--content">
-                                        <ul class="rating d-flex">
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                        </ul>
-                                    </div>
-                                </div>
                             </div>
-                            <!-- Start Single Product -->
-                        </div>
-                        <!-- Start Single Product -->
-                    </div>
-                    <div class="single__product">
-                        <!-- Start Single Product -->
-                        <div class="product product__style--3">
-                            <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                                <div class="product__thumb">
-                                    <a class="first__img" href="single-product.html"><img src="images/books/2-3.jpg"
-                                                                                          alt="product image"></a>
-                                    <div class="hot__box color--2">
-                                        <span class="hot-label">15%</span>
-                                    </div>
-                                </div>
-                                <div class="product__content content--center">
-                                    <h4><a href="single-product.html">Doraemon - Tập 3</a></h4>
-                                    <ul class="prize d-flex">
-                                        <li>36.000đ</li>
-                                    </ul>
-                                    <ul class="prize d-flex">
-                                        <li class="old_prize">42.000đ</li>
-                                    </ul>
-
-                                    <div class="action">
-                                        <div class="actions_inner">
-                                            <ul class="add_to_links">
-                                                <li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a>
-                                                </li>
-                                                <li><a class="compare" href="wishlist.html"><i
-                                                        class="bi bi-heart-beat"></i></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="product__hover--content">
-                                        <ul class="rating d-flex">
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                        </ul>
-                                    </div>
-                                </div>
                             </div>
-                            <!-- Start Single Product -->
-                        </div>
-                        <!-- Start Single Product -->
-                        <!-- Start Single Product -->
-                        <div class="product product__style--3">
-                            <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                                <div class="product__thumb">
-                                    <a class="first__img" href="single-product.html"><img src="images/books/2-4.jpg"
-                                                                                          alt="product image"></a>
-                                    <div class="hot__box color--2">
-                                        <span class="hot-label">10%</span>
-                                    </div>
-                                </div>
-                                <div class="product__content content--center">
-                                    <h4><a href="single-product.html">Doraemon - Tập 6</a></h4>
-                                    <ul class="prize d-flex">
-                                        <li>37.800đ</li>
-                                    </ul>
-                                    <ul class="prize d-flex">
-                                        <li class="old_prize">42.000đ</li>
-                                    </ul>
-
-                                    <div class="action">
-                                        <div class="actions_inner">
-                                            <ul class="add_to_links">
-                                                <li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a>
-                                                </li>
-                                                <li><a class="compare" href="wishlist.html"><i
-                                                        class="bi bi-heart-beat"></i></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="product__hover--content">
-                                        <ul class="rating d-flex">
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Start Single Product -->
-                        </div>
-                        <!-- Start Single Product -->
-                    </div>
-                    <div class="single__product">
-                        <!-- Start Single Product -->
-                        <div class="product product__style--3">
-                            <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                                <div class="product__thumb">
-                                    <a class="first__img" href="single-product.html"><img src="images/books/10-5.jpg"
-                                                                                          alt="product image"></a>
-                                    <div class="hot__box">
-                                        <span class="hot-label">5%</span>
-                                    </div>
-                                </div>
-                                <div class="product__content content--center">
-                                    <h4><a href="single-product.html">Miền đất hứa - tập 1</a></h4>
-                                    <ul class="prize d-flex">
-                                        <li>27.000đ</li>
-                                    </ul>
-                                    <ul class="prize d-flex">
-                                        <li class="old_prize">28.000đ</li>
-                                    </ul>
-
-                                    <div class="action">
-                                        <div class="actions_inner">
-                                            <ul class="add_to_links">
-                                                <li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a>
-                                                </li>
-                                                <li><a class="compare" href="wishlist.html"><i
-                                                        class="bi bi-heart-beat"></i></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="product__hover--content">
-                                        <ul class="rating d-flex">
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Start Single Product -->
-                        </div>
-                        <!-- Start Single Product -->
-                        <!-- Start Single Product -->
-                        <div class="product product__style--3">
-                            <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                                <div class="product__thumb">
-                                    <a class="first__img" href="single-product.html"><img src="images/books/10-6.jpg"
-                                                                                          alt="product image"></a>
-                                    <div class="hot__box color--2">
-                                        <span class="hot-label">6%</span>
-                                    </div>
-                                </div>
-                                <div class="product__content content--center">
-                                    <h4><a href="single-product.html">Miền đất hứa - tập 2</a></h4>
-                                    <ul class="prize d-flex">
-                                        <li>26.000đ</li>
-                                    </ul>
-                                    <ul class="prize d-flex">
-                                        <li class="old_prize">28.000đ</li>
-                                    </ul>
-
-                                    <div class="action">
-                                        <div class="actions_inner">
-                                            <ul class="add_to_links">
-                                                <li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a>
-                                                </li>
-                                                <li><a class="compare" href="wishlist.html"><i
-                                                        class="bi bi-heart-beat"></i></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="product__hover--content">
-                                        <ul class="rating d-flex">
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Start Single Product -->
-                        </div>
-                        <!-- Start Single Product -->
-                    </div>
-                    <div class="single__product">
-                        <!-- Start Single Product -->
-                        <div class="product product__style--3">
-                            <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                                <div class="product__thumb">
-                                    <a class="first__img" href="single-product.html"><img src="images/books/10-7.jpg"
-                                                                                          alt="product image"></a>
-                                    <a class="second__img animation1" href="single-product.html"><img
-                                            src="images/books/2.jpg"
-                                            alt="product image"></a>
-                                    <div class="hot__box">
-                                        <span class="hot-label">12%</span>
-                                    </div>
-                                </div>
-                                <div class="product__content content--center">
-                                    <h4><a href="single-product.html">Fairy Tail - tập 61</a></h4>
-                                    <ul class="prize d-flex">
-                                        <li>35.600đ</li>
-                                    </ul>
-                                    <ul class="prize d-flex">
-                                        <li class="old_prize">40.000đ</li>
-                                    </ul>
-
-                                    <div class="action">
-                                        <div class="actions_inner">
-                                            <ul class="add_to_links">
-                                                <li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a>
-                                                </li>
-                                                <li><a class="compare" href="wishlist.html"><i
-                                                        class="bi bi-heart-beat"></i></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="product__hover--content">
-                                        <ul class="rating d-flex">
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Start Single Product -->
-                        </div>
-                        <!-- Start Single Product -->
-                        <!-- Start Single Product -->
-                        <div class="product product__style--3">
-                            <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                                <div class="product__thumb">
-                                    <a class="first__img" href="single-product.html"><img src="images/books/10-8.jpg"
-                                                                                          alt="product image"></a>
-                                    <a class="second__img animation1" href="single-product.html"><img
-                                            src="images/books/2.jpg"
-                                            alt="product image"></a>
-                                    <div class="hot__box">
-                                        <span class="hot-label">15%</span>
-                                    </div>
-                                </div>
-                                <div class="product__content content--center">
-                                    <h4><a href="single-product.html">robin parrish</a></h4>
-                                    <ul class="prize d-flex">
-                                        <li>34.000đ</li>
-                                    </ul>
-                                    <ul class="prize d-flex">
-                                        <li class="old_prize">40.000đ</li>
-                                    </ul>
-
-                                    <div class="action">
-                                        <div class="actions_inner">
-                                            <ul class="add_to_links">
-                                                <li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a>
-                                                </li>
-                                                <li><a class="compare" href="wishlist.html"><i
-                                                        class="bi bi-heart-beat"></i></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="product__hover--content">
-                                        <ul class="rating d-flex">
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Start Single Product -->
-                        </div>
-                        <!-- Start Single Product -->
-                    </div>
-                    <div class="single__product">
-                        <!-- Start Single Product -->
-                        <div class="product product__style--3">
-                            <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                                <div class="product__thumb">
-                                    <a class="first__img" href="single-product.html"><img src="images/books/10-9.jpg"
-                                                                                          alt="product image"></a>
-                                    <a class="second__img animation1" href="single-product.html"><img
-                                            src="images/books/2.jpg"
-                                            alt="product image"></a>
-                                    <div class="hot__box">
-                                        <span class="hot-label">8%</span>
-                                    </div>
-                                </div>
-                                <div class="product__content content--center">
-                                    <h4><a href="single-product.html">7 viên ngọc rồng - tập 33</a></h4>
-                                    <ul class="prize d-flex">
-                                        <li>29.000đ</li>
-                                    </ul>
-                                    <ul class="prize d-flex">
-                                        <li class="old_prize">32.000đ</li>
-                                    </ul>
-
-                                    <div class="action">
-                                        <div class="actions_inner">
-                                            <ul class="add_to_links">
-                                                <li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a>
-                                                </li>
-                                                <li><a class="compare" href="wishlist.html"><i
-                                                        class="bi bi-heart-beat"></i></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="product__hover--content">
-                                        <ul class="rating d-flex">
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Start Single Product -->
-                        </div>
-                        <!-- Start Single Product -->
-                        <!-- Start Single Product -->
-                        <div class="product product__style--3">
-                            <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                                <div class="product__thumb">
-                                    <a class="first__img" href="single-product.html"><img src="images/books/10-10.jpg"
-                                                                                          alt="product image"></a>
-                                    <a class="second__img animation1" href="single-product.html"><img
-                                            src="images/books/2.jpg"
-                                            alt="product image"></a>
-                                    <div class="hot__box">
-                                        <span class="hot-label">BEST</span>
-                                    </div>
-                                </div>
-                                <div class="product__content content--center">
-                                    <h4><a href="single-product.html">7 viên ngọc rồng - tập 5</a></h4>
-                                    <ul class="prize d-flex">
-                                        <li>29.400đ</li>
-                                    </ul>
-                                    <ul class="prize d-flex">
-                                        <li class="old_prize">32.000đ</li>
-                                    </ul>
-
-                                    <div class="action">
-                                        <div class="actions_inner">
-                                            <ul class="add_to_links">
-                                                <li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a>
-                                                </li>
-                                                <li><a class="compare" href="wishlist.html"><i
-                                                        class="bi bi-heart-beat"></i></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="product__hover--content">
-                                        <ul class="rating d-flex">
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Start Single Product -->
-                        </div>
-                        <!-- Start Single Product -->
-                    </div>
+                            
+                </c:forEach>
                 </div>
-            </div>
+                </div>
+                
+                    
+                            <!-- Start Single Product -->
+                        
+                       
             <!-- End Single Tab Content -->
             <!-- Start Single Tab Content -->
+            <!-- Enf of biology -->
             <div class="row single__tab tab-pane fade" id="nav-adventure" role="tabpanel">
                 <div class="product__indicator--4 furniture--4v2 arrows_style owl-carousel owl-theme">
-                    <div class="single__product">
+                <c:forEach var="sanpham" items="${listSanPham}"> 
+                <div class="single__product">
                         <!-- Start Single Product -->
                         <div class="product product__style--3">
                             <div class="col-lg-3 col-md-4 col-sm-6 col-12">
                                 <div class="product__thumb">
-                                    <a class="first__img" href="single-product.html"><img src="images/books/2-3.jpg"
+                                    <a class="first__img" href="single-product.html"><img src='<c:url value="${sanpham.getHinhsanpham()}"/>'
                                                                                           alt="product image"></a>
                                     <div class="hot__box color--2">
                                         <span class="hot-label">15%</span>
                                     </div>
                                 </div>
                                 <div class="product__content content--center">
-                                    <h4><a href="single-product.html">Doraemon - Tập 3</a></h4>
+                                    <h4><a href="single-product.html">${sanpham.getTensanpham()}</a></h4>
                                     <ul class="prize d-flex">
                                         <li>36.000đ</li>
                                     </ul>
                                     <ul class="prize d-flex">
-                                        <li class="old_prize">42.000đ</li>
+                                        <li class="old_prize">${sanpham.getGiatien()}đ</li>
                                     </ul>
 
                                     <div class="action">
@@ -1194,448 +392,38 @@
                             </div>
                             <!-- Start Single Product -->
                         </div>
-                        <!-- Start Single Product -->
-                        <!-- Start Single Product -->
-                        <div class="product product__style--3">
-                            <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                                <div class="product__thumb">
-                                    <a class="first__img" href="single-product.html"><img src="images/books/2-4.jpg"
-                                                                                          alt="product image"></a>
-                                    <div class="hot__box color--2">
-                                        <span class="hot-label">10%</span>
-                                    </div>
-                                </div>
-                                <div class="product__content content--center">
-                                    <h4><a href="single-product.html">Doraemon - Tập 6</a></h4>
-                                    <ul class="prize d-flex">
-                                        <li>37.800đ</li>
-                                    </ul>
-                                    <ul class="prize d-flex">
-                                        <li class="old_prize">42.000đ</li>
-                                    </ul>
-
-                                    <div class="action">
-                                        <div class="actions_inner">
-                                            <ul class="add_to_links">
-                                                <li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a>
-                                                </li>
-                                                <li><a class="compare" href="wishlist.html"><i
-                                                        class="bi bi-heart-beat"></i></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="product__hover--content">
-                                        <ul class="rating d-flex">
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Start Single Product -->
                         </div>
-                        <!-- Start Single Product -->
-                    </div>
-                    <div class="single__product">
-                        <!-- Start Single Product -->
-                        <div class="product product__style--3">
-                            <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                                <div class="product__thumb">
-                                    <a class="first__img" href="single-product.html"><img src="images/books/2-1.jpg"
-                                                                                          alt="product image"></a>
-                                    <div class="hot__box">
-                                        <span class="hot-label">10%</span>
-                                    </div>
-                                </div>
-                                <div class="product__content content--center">
-                                    <h4><a href="single-product.html">Conan - Tập 61</a></h4>
-                                    <ul class="prize d-flex">
-                                        <li>34.000đ</li>
-                                    </ul>
-                                    <ul class="prize d-flex">
-                                        <li class="old_prize">38.000đ</li>
-                                    </ul>
-
-                                    <div class="action">
-                                        <div class="actions_inner">
-                                            <ul class="add_to_links">
-                                                <li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a>
-                                                </li>
-                                                <li><a class="compare" href="wishlist.html"><i
-                                                        class="bi bi-heart-beat"></i></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="product__hover--content">
-                                        <ul class="rating d-flex">
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Start Single Product -->
+                        
+                        
+                        </c:forEach>
                         </div>
-                        <!-- Start Single Product -->
-                        <!-- Start Single Product -->
-                        <div class="product product__style--3">
-                            <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                                <div class="product__thumb">
-                                    <a class="first__img" href="single-product.html"><img src="images/books/2-2.jpg"
-                                                                                          alt="product image"></a>
-                                    <div class="hot__box color--2">
-                                        <span class="hot-label">12%</span>
-                                    </div>
-                                </div>
-                                <div class="product__content content--center">
-                                    <h4><a href="single-product.html">Conan - Tập 2</a></h4>
-                                    <ul class="prize d-flex">
-                                        <li>32.000đ</li>
-                                    </ul>
-                                    <ul class="prize d-flex">
-                                        <li class="old_prize">38.000đ</li>
-                                    </ul>
-
-                                    <div class="action">
-                                        <div class="actions_inner">
-                                            <ul class="add_to_links">
-                                                <li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a>
-                                                </li>
-                                                <li><a class="compare" href="wishlist.html"><i
-                                                        class="bi bi-heart-beat"></i></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="product__hover--content">
-                                        <ul class="rating d-flex">
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Start Single Product -->
                         </div>
-                        <!-- Start Single Product -->
-                    </div>
-                    <div class="single__product">
-                        <!-- Start Single Product -->
-                        <div class="product product__style--3">
-                            <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                                <div class="product__thumb">
-                                    <a class="first__img" href="single-product.html"><img src="images/books/10-9.jpg"
-                                                                                          alt="product image"></a>
-                                    <a class="second__img animation1" href="single-product.html"><img
-                                            src="images/books/2.jpg"
-                                            alt="product image"></a>
-                                    <div class="hot__box">
-                                        <span class="hot-label">8%</span>
-                                    </div>
-                                </div>
-                                <div class="product__content content--center">
-                                    <h4><a href="single-product.html">7 viên ngọc rồng - tập 33</a></h4>
-                                    <ul class="prize d-flex">
-                                        <li>29.000đ</li>
-                                    </ul>
-                                    <ul class="prize d-flex">
-                                        <li class="old_prize">32.000đ</li>
-                                    </ul>
-
-                                    <div class="action">
-                                        <div class="actions_inner">
-                                            <ul class="add_to_links">
-                                                <li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a>
-                                                </li>
-                                                <li><a class="compare" href="wishlist.html"><i
-                                                        class="bi bi-heart-beat"></i></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="product__hover--content">
-                                        <ul class="rating d-flex">
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Start Single Product -->
-                        </div>
-                        <!-- Start Single Product -->
-                        <!-- Start Single Product -->
-                        <div class="product product__style--3">
-                            <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                                <div class="product__thumb">
-                                    <a class="first__img" href="single-product.html"><img src="images/books/10-10.jpg"
-                                                                                          alt="product image"></a>
-                                    <a class="second__img animation1" href="single-product.html"><img
-                                            src="images/books/2.jpg"
-                                            alt="product image"></a>
-                                    <div class="hot__box">
-                                        <span class="hot-label">BEST</span>
-                                    </div>
-                                </div>
-                                <div class="product__content content--center">
-                                    <h4><a href="single-product.html">7 viên ngọc rồng - tập 5</a></h4>
-                                    <ul class="prize d-flex">
-                                        <li>29.400đ</li>
-                                    </ul>
-                                    <ul class="prize d-flex">
-                                        <li class="old_prize">32.000đ</li>
-                                    </ul>
-
-                                    <div class="action">
-                                        <div class="actions_inner">
-                                            <ul class="add_to_links">
-                                                <li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a>
-                                                </li>
-                                                <li><a class="compare" href="wishlist.html"><i
-                                                        class="bi bi-heart-beat"></i></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="product__hover--content">
-                                        <ul class="rating d-flex">
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Start Single Product -->
-                        </div>
-                        <!-- Start Single Product -->
-                    </div>
-                    <div class="single__product">
-                        <!-- Start Single Product -->
-                        <div class="product product__style--3">
-                            <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                                <div class="product__thumb">
-                                    <a class="first__img" href="single-product.html"><img src="images/books/10-5.jpg"
-                                                                                          alt="product image"></a>
-                                    <div class="hot__box">
-                                        <span class="hot-label">5%</span>
-                                    </div>
-                                </div>
-                                <div class="product__content content--center">
-                                    <h4><a href="single-product.html">Miền đất hứa - tập 1</a></h4>
-                                    <ul class="prize d-flex">
-                                        <li>27.000đ</li>
-                                    </ul>
-                                    <ul class="prize d-flex">
-                                        <li class="old_prize">28.000đ</li>
-                                    </ul>
-
-                                    <div class="action">
-                                        <div class="actions_inner">
-                                            <ul class="add_to_links">
-                                                <li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a>
-                                                </li>
-                                                <li><a class="compare" href="wishlist.html"><i
-                                                        class="bi bi-heart-beat"></i></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="product__hover--content">
-                                        <ul class="rating d-flex">
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Start Single Product -->
-                        </div>
-                        <!-- Start Single Product -->
-                        <!-- Start Single Product -->
-                        <div class="product product__style--3">
-                            <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                                <div class="product__thumb">
-                                    <a class="first__img" href="single-product.html"><img src="images/books/10-6.jpg"
-                                                                                          alt="product image"></a>
-                                    <div class="hot__box color--2">
-                                        <span class="hot-label">6%</span>
-                                    </div>
-                                </div>
-                                <div class="product__content content--center">
-                                    <h4><a href="single-product.html">Miền đất hứa - tập 2</a></h4>
-                                    <ul class="prize d-flex">
-                                        <li>26.000đ</li>
-                                    </ul>
-                                    <ul class="prize d-flex">
-                                        <li class="old_prize">28.000đ</li>
-                                    </ul>
-
-                                    <div class="action">
-                                        <div class="actions_inner">
-                                            <ul class="add_to_links">
-                                                <li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a>
-                                                </li>
-                                                <li><a class="compare" href="wishlist.html"><i
-                                                        class="bi bi-heart-beat"></i></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="product__hover--content">
-                                        <ul class="rating d-flex">
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Start Single Product -->
-                        </div>
-                        <!-- Start Single Product -->
-                    </div>
-                    <div class="single__product">
-                        <!-- Start Single Product -->
-                        <div class="product product__style--3">
-                            <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                                <div class="product__thumb">
-                                    <a class="first__img" href="single-product.html"><img src="images/books/10-7.jpg"
-                                                                                          alt="product image"></a>
-                                    <a class="second__img animation1" href="single-product.html"><img
-                                            src="images/books/2.jpg"
-                                            alt="product image"></a>
-                                    <div class="hot__box">
-                                        <span class="hot-label">12%</span>
-                                    </div>
-                                </div>
-                                <div class="product__content content--center">
-                                    <h4><a href="single-product.html">Fairy Tail - tập 61</a></h4>
-                                    <ul class="prize d-flex">
-                                        <li>35.600đ</li>
-                                    </ul>
-                                    <ul class="prize d-flex">
-                                        <li class="old_prize">40.000đ</li>
-                                    </ul>
-
-                                    <div class="action">
-                                        <div class="actions_inner">
-                                            <ul class="add_to_links">
-                                                <li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a>
-                                                </li>
-                                                <li><a class="compare" href="wishlist.html"><i
-                                                        class="bi bi-heart-beat"></i></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="product__hover--content">
-                                        <ul class="rating d-flex">
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Start Single Product -->
-                        </div>
-                        <!-- Start Single Product -->
-                        <!-- Start Single Product -->
-                        <div class="product product__style--3">
-                            <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                                <div class="product__thumb">
-                                    <a class="first__img" href="single-product.html"><img src="images/books/10-8.jpg"
-                                                                                          alt="product image"></a>
-                                    <a class="second__img animation1" href="single-product.html"><img
-                                            src="images/books/2.jpg"
-                                            alt="product image"></a>
-                                    <div class="hot__box">
-                                        <span class="hot-label">15%</span>
-                                    </div>
-                                </div>
-                                <div class="product__content content--center">
-                                    <h4><a href="single-product.html">robin parrish</a></h4>
-                                    <ul class="prize d-flex">
-                                        <li>34.000đ</li>
-                                    </ul>
-                                    <ul class="prize d-flex">
-                                        <li class="old_prize">40.000đ</li>
-                                    </ul>
-
-                                    <div class="action">
-                                        <div class="actions_inner">
-                                            <ul class="add_to_links">
-                                                <li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a>
-                                                </li>
-                                                <li><a class="compare" href="wishlist.html"><i
-                                                        class="bi bi-heart-beat"></i></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="product__hover--content">
-                                        <ul class="rating d-flex">
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Start Single Product -->
-                        </div>
-                        <!-- Start Single Product -->
-                    </div>
-                </div>
-            </div>
+                        
+                
             <!-- End Single Tab Content -->
             <!-- Start Single Tab Content -->
+            <!-- End of advanture  -->
             <div class="row single__tab tab-pane fade" id="nav-children" role="tabpanel">
                 <div class="product__indicator--4 furniture--4v2 arrows_style owl-carousel owl-theme">
-                    <div class="single__product">
+                <c:forEach var="sanpham" items="${listSanPham}">
+                <div class="single__product">
                         <!-- Start Single Product -->
                         <div class="product product__style--3">
                             <div class="col-lg-3 col-md-4 col-sm-6 col-12">
                                 <div class="product__thumb">
-                                    <a class="first__img" href="single-product.html"><img src="images/books/2-1.jpg"
+                                    <a class="first__img" href="single-product.html"><img src='<c:url value="${sanpham.getHinhsanpham()}"/>'
                                                                                           alt="product image"></a>
                                     <div class="hot__box">
                                         <span class="hot-label">10%</span>
                                     </div>
                                 </div>
                                 <div class="product__content content--center">
-                                    <h4><a href="single-product.html">Conan - Tập 61</a></h4>
+                                    <h4><a href="single-product.html">${sanpham.getTensanpham()}</a></h4>
                                     <ul class="prize d-flex">
                                         <li>34.000đ</li>
                                     </ul>
                                     <ul class="prize d-flex">
-                                        <li class="old_prize">38.000đ</li>
+                                        <li class="old_prize">${sanpham.getGiatien()}đ</li>
                                     </ul>
 
                                     <div class="action">
@@ -1662,448 +450,36 @@
                             </div>
                             <!-- Start Single Product -->
                         </div>
-                        <!-- Start Single Product -->
-                        <!-- Start Single Product -->
-                        <div class="product product__style--3">
-                            <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                                <div class="product__thumb">
-                                    <a class="first__img" href="single-product.html"><img src="images/books/2-2.jpg"
-                                                                                          alt="product image"></a>
-                                    <div class="hot__box color--2">
-                                        <span class="hot-label">12%</span>
-                                    </div>
-                                </div>
-                                <div class="product__content content--center">
-                                    <h4><a href="single-product.html">Conan - Tập 2</a></h4>
-                                    <ul class="prize d-flex">
-                                        <li>32.000đ</li>
-                                    </ul>
-                                    <ul class="prize d-flex">
-                                        <li class="old_prize">38.000đ</li>
-                                    </ul>
-
-                                    <div class="action">
-                                        <div class="actions_inner">
-                                            <ul class="add_to_links">
-                                                <li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a>
-                                                </li>
-                                                <li><a class="compare" href="wishlist.html"><i
-                                                        class="bi bi-heart-beat"></i></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="product__hover--content">
-                                        <ul class="rating d-flex">
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Start Single Product -->
                         </div>
-                        <!-- Start Single Product -->
-                    </div>
-                    <div class="single__product">
-                        <!-- Start Single Product -->
-                        <div class="product product__style--3">
-                            <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                                <div class="product__thumb">
-                                    <a class="first__img" href="single-product.html"><img src="images/books/10-3.jpg"
-                                                                                          alt="product image"></a>
-                                    <div class="hot__box color--2">
-                                        <span class="hot-label">15%</span>
-                                    </div>
-                                </div>
-                                <div class="product__content content--center">
-                                    <h4><a href="single-product.html">Doraemon - Tập 3</a></h4>
-                                    <ul class="prize d-flex">
-                                        <li>36.000đ</li>
-                                    </ul>
-                                    <ul class="prize d-flex">
-                                        <li class="old_prize">42.000đ</li>
-                                    </ul>
-
-                                    <div class="action">
-                                        <div class="actions_inner">
-                                            <ul class="add_to_links">
-                                                <li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a>
-                                                </li>
-                                                <li><a class="compare" href="wishlist.html"><i
-                                                        class="bi bi-heart-beat"></i></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="product__hover--content">
-                                        <ul class="rating d-flex">
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Start Single Product -->
-                        </div>
-                        <!-- Start Single Product -->
-                        <!-- Start Single Product -->
-                        <div class="product product__style--3">
-                            <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                                <div class="product__thumb">
-                                    <a class="first__img" href="single-product.html"><img src="images/books/10-4.jpg"
-                                                                                          alt="product image"></a>
-                                    <div class="hot__box color--2">
-                                        <span class="hot-label">10%</span>
-                                    </div>
-                                </div>
-                                <div class="product__content content--center">
-                                    <h4><a href="single-product.html">Doraemon - Tập 6</a></h4>
-                                    <ul class="prize d-flex">
-                                        <li>37.800đ</li>
-                                    </ul>
-                                    <ul class="prize d-flex">
-                                        <li class="old_prize">42.000đ</li>
-                                    </ul>
-
-                                    <div class="action">
-                                        <div class="actions_inner">
-                                            <ul class="add_to_links">
-                                                <li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a>
-                                                </li>
-                                                <li><a class="compare" href="wishlist.html"><i
-                                                        class="bi bi-heart-beat"></i></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="product__hover--content">
-                                        <ul class="rating d-flex">
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Start Single Product -->
-                        </div>
-                        <!-- Start Single Product -->
-                    </div>
-                    <div class="single__product">
-                        <!-- Start Single Product -->
-                        <div class="product product__style--3">
-                            <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                                <div class="product__thumb">
-                                    <a class="first__img" href="single-product.html"><img src="images/books/10-5.jpg"
-                                                                                          alt="product image"></a>
-                                    <div class="hot__box">
-                                        <span class="hot-label">5%</span>
-                                    </div>
-                                </div>
-                                <div class="product__content content--center">
-                                    <h4><a href="single-product.html">Miền đất hứa - tập 1</a></h4>
-                                    <ul class="prize d-flex">
-                                        <li>27.000đ</li>
-                                    </ul>
-                                    <ul class="prize d-flex">
-                                        <li class="old_prize">28.000đ</li>
-                                    </ul>
-
-                                    <div class="action">
-                                        <div class="actions_inner">
-                                            <ul class="add_to_links">
-                                                <li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a>
-                                                </li>
-                                                <li><a class="compare" href="wishlist.html"><i
-                                                        class="bi bi-heart-beat"></i></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="product__hover--content">
-                                        <ul class="rating d-flex">
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Start Single Product -->
-                        </div>
-                        <!-- Start Single Product -->
-                        <!-- Start Single Product -->
-                        <div class="product product__style--3">
-                            <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                                <div class="product__thumb">
-                                    <a class="first__img" href="single-product.html"><img src="images/books/10-6.jpg"
-                                                                                          alt="product image"></a>
-                                    <div class="hot__box color--2">
-                                        <span class="hot-label">6%</span>
-                                    </div>
-                                </div>
-                                <div class="product__content content--center">
-                                    <h4><a href="single-product.html">Miền đất hứa - tập 2</a></h4>
-                                    <ul class="prize d-flex">
-                                        <li>26.000đ</li>
-                                    </ul>
-                                    <ul class="prize d-flex">
-                                        <li class="old_prize">28.000đ</li>
-                                    </ul>
-
-                                    <div class="action">
-                                        <div class="actions_inner">
-                                            <ul class="add_to_links">
-                                                <li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a>
-                                                </li>
-                                                <li><a class="compare" href="wishlist.html"><i
-                                                        class="bi bi-heart-beat"></i></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="product__hover--content">
-                                        <ul class="rating d-flex">
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Start Single Product -->
-                        </div>
-                        <!-- Start Single Product -->
-                    </div>
-                    <div class="single__product">
-                        <!-- Start Single Product -->
-                        <div class="product product__style--3">
-                            <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                                <div class="product__thumb">
-                                    <a class="first__img" href="single-product.html"><img src="images/books/10-7.jpg"
-                                                                                          alt="product image"></a>
-                                    <a class="second__img animation1" href="single-product.html"><img
-                                            src="images/books/2.jpg"
-                                            alt="product image"></a>
-                                    <div class="hot__box">
-                                        <span class="hot-label">12%</span>
-                                    </div>
-                                </div>
-                                <div class="product__content content--center">
-                                    <h4><a href="single-product.html">Fairy Tail - tập 61</a></h4>
-                                    <ul class="prize d-flex">
-                                        <li>35.600đ</li>
-                                    </ul>
-                                    <ul class="prize d-flex">
-                                        <li class="old_prize">40.000đ</li>
-                                    </ul>
-
-                                    <div class="action">
-                                        <div class="actions_inner">
-                                            <ul class="add_to_links">
-                                                <li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a>
-                                                </li>
-                                                <li><a class="compare" href="wishlist.html"><i
-                                                        class="bi bi-heart-beat"></i></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="product__hover--content">
-                                        <ul class="rating d-flex">
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Start Single Product -->
-                        </div>
-                        <!-- Start Single Product -->
-                        <!-- Start Single Product -->
-                        <div class="product product__style--3">
-                            <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                                <div class="product__thumb">
-                                    <a class="first__img" href="single-product.html"><img src="images/books/10-8.jpg"
-                                                                                          alt="product image"></a>
-                                    <a class="second__img animation1" href="single-product.html"><img
-                                            src="images/books/2.jpg"
-                                            alt="product image"></a>
-                                    <div class="hot__box">
-                                        <span class="hot-label">15%</span>
-                                    </div>
-                                </div>
-                                <div class="product__content content--center">
-                                    <h4><a href="single-product.html">robin parrish</a></h4>
-                                    <ul class="prize d-flex">
-                                        <li>34.000đ</li>
-                                    </ul>
-                                    <ul class="prize d-flex">
-                                        <li class="old_prize">40.000đ</li>
-                                    </ul>
-
-                                    <div class="action">
-                                        <div class="actions_inner">
-                                            <ul class="add_to_links">
-                                                <li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a>
-                                                </li>
-                                                <li><a class="compare" href="wishlist.html"><i
-                                                        class="bi bi-heart-beat"></i></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="product__hover--content">
-                                        <ul class="rating d-flex">
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Start Single Product -->
-                        </div>
-                        <!-- Start Single Product -->
-                    </div>
-                    <div class="single__product">
-                        <!-- Start Single Product -->
-                        <div class="product product__style--3">
-                            <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                                <div class="product__thumb">
-                                    <a class="first__img" href="single-product.html"><img src="images/books/10-9.jpg"
-                                                                                          alt="product image"></a>
-                                    <a class="second__img animation1" href="single-product.html"><img
-                                            src="images/books/2.jpg"
-                                            alt="product image"></a>
-                                    <div class="hot__box">
-                                        <span class="hot-label">8%</span>
-                                    </div>
-                                </div>
-                                <div class="product__content content--center">
-                                    <h4><a href="single-product.html">7 viên ngọc rồng - tập 33</a></h4>
-                                    <ul class="prize d-flex">
-                                        <li>29.000đ</li>
-                                    </ul>
-                                    <ul class="prize d-flex">
-                                        <li class="old_prize">32.000đ</li>
-                                    </ul>
-
-                                    <div class="action">
-                                        <div class="actions_inner">
-                                            <ul class="add_to_links">
-                                                <li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a>
-                                                </li>
-                                                <li><a class="compare" href="wishlist.html"><i
-                                                        class="bi bi-heart-beat"></i></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="product__hover--content">
-                                        <ul class="rating d-flex">
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Start Single Product -->
-                        </div>
-                        <!-- Start Single Product -->
-                        <!-- Start Single Product -->
-                        <div class="product product__style--3">
-                            <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                                <div class="product__thumb">
-                                    <a class="first__img" href="single-product.html"><img src="images/books/10-10.jpg"
-                                                                                          alt="product image"></a>
-                                    <a class="second__img animation1" href="single-product.html"><img
-                                            src="images/books/2.jpg"
-                                            alt="product image"></a>
-                                    <div class="hot__box">
-                                        <span class="hot-label">BEST</span>
-                                    </div>
-                                </div>
-                                <div class="product__content content--center">
-                                    <h4><a href="single-product.html">7 viên ngọc rồng - tập 5</a></h4>
-                                    <ul class="prize d-flex">
-                                        <li>29.400đ</li>
-                                    </ul>
-                                    <ul class="prize d-flex">
-                                        <li class="old_prize">32.000đ</li>
-                                    </ul>
-
-                                    <div class="action">
-                                        <div class="actions_inner">
-                                            <ul class="add_to_links">
-                                                <li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a>
-                                                </li>
-                                                <li><a class="compare" href="wishlist.html"><i
-                                                        class="bi bi-heart-beat"></i></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="product__hover--content">
-                                        <ul class="rating d-flex">
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Start Single Product -->
-                        </div>
-                        <!-- Start Single Product -->
-                    </div>
+                        
+                </c:forEach>
                 </div>
-            </div>
+                </div>
+                
             <!-- End Single Tab Content -->
             <!-- Start Single Tab Content -->
+            <!--end of children  -->
             <div class="row single__tab tab-pane fade" id="nav-cook" role="tabpanel">
                 <div class="product__indicator--4 furniture--4v2 arrows_style owl-carousel owl-theme">
-                    <div class="single__product">
+                <c:forEach var="sanpham" items="${listSanPham}"> 
+                <div class="single__product">
                         <!-- Start Single Product -->
                         <div class="product product__style--3">
                             <div class="col-lg-3 col-md-4 col-sm-6 col-12">
                                 <div class="product__thumb">
-                                    <a class="first__img" href="single-product.html"><img src="images/books/2-1.jpg"
+                                    <a class="first__img" href="single-product.html"><img src='<c:url value="${sanpham.getHinhsanpham()}"/>'
                                                                                           alt="product image"></a>
                                     <div class="hot__box">
                                         <span class="hot-label">10%</span>
                                     </div>
                                 </div>
                                 <div class="product__content content--center">
-                                    <h4><a href="single-product.html">Conan - Tập 61</a></h4>
+                                    <h4><a href="single-product.html">${sanpham.getTensanpham()}</a></h4>
                                     <ul class="prize d-flex">
                                         <li>34.000đ</li>
                                     </ul>
                                     <ul class="prize d-flex">
-                                        <li class="old_prize">38.000đ</li>
+                                        <li class="old_prize">${sanpham.getGiatien()}đ</li>
                                     </ul>
 
                                     <div class="action">
@@ -2132,426 +508,11 @@
                         </div>
                         <!-- Start Single Product -->
                         <!-- Start Single Product -->
-                        <div class="product product__style--3">
-                            <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                                <div class="product__thumb">
-                                    <a class="first__img" href="single-product.html"><img src="images/books/2-2.jpg"
-                                                                                          alt="product image"></a>
-                                    <div class="hot__box color--2">
-                                        <span class="hot-label">12%</span>
-                                    </div>
-                                </div>
-                                <div class="product__content content--center">
-                                    <h4><a href="single-product.html">Conan - Tập 2</a></h4>
-                                    <ul class="prize d-flex">
-                                        <li>32.000đ</li>
-                                    </ul>
-                                    <ul class="prize d-flex">
-                                        <li class="old_prize">38.000đ</li>
-                                    </ul>
-
-                                    <div class="action">
-                                        <div class="actions_inner">
-                                            <ul class="add_to_links">
-                                                <li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a>
-                                                </li>
-                                                <li><a class="compare" href="wishlist.html"><i
-                                                        class="bi bi-heart-beat"></i></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="product__hover--content">
-                                        <ul class="rating d-flex">
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Start Single Product -->
                         </div>
-                        <!-- Start Single Product -->
-                    </div>
-                    <div class="single__product">
-                        <!-- Start Single Product -->
-                        <div class="product product__style--3">
-                            <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                                <div class="product__thumb">
-                                    <a class="first__img" href="single-product.html"><img src="images/books/10-3.jpg"
-                                                                                          alt="product image"></a>
-                                    <div class="hot__box color--2">
-                                        <span class="hot-label">15%</span>
-                                    </div>
-                                </div>
-                                <div class="product__content content--center">
-                                    <h4><a href="single-product.html">Doraemon - Tập 3</a></h4>
-                                    <ul class="prize d-flex">
-                                        <li>36.000đ</li>
-                                    </ul>
-                                    <ul class="prize d-flex">
-                                        <li class="old_prize">42.000đ</li>
-                                    </ul>
-
-                                    <div class="action">
-                                        <div class="actions_inner">
-                                            <ul class="add_to_links">
-                                                <li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a>
-                                                </li>
-                                                <li><a class="compare" href="wishlist.html"><i
-                                                        class="bi bi-heart-beat"></i></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="product__hover--content">
-                                        <ul class="rating d-flex">
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Start Single Product -->
+                        
+                        </c:forEach>
                         </div>
-                        <!-- Start Single Product -->
-                        <!-- Start Single Product -->
-                        <div class="product product__style--3">
-                            <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                                <div class="product__thumb">
-                                    <a class="first__img" href="single-product.html"><img src="images/books/10-4.jpg"
-                                                                                          alt="product image"></a>
-                                    <div class="hot__box color--2">
-                                        <span class="hot-label">10%</span>
-                                    </div>
-                                </div>
-                                <div class="product__content content--center">
-                                    <h4><a href="single-product.html">Doraemon - Tập 6</a></h4>
-                                    <ul class="prize d-flex">
-                                        <li>37.800đ</li>
-                                    </ul>
-                                    <ul class="prize d-flex">
-                                        <li class="old_prize">42.000đ</li>
-                                    </ul>
-
-                                    <div class="action">
-                                        <div class="actions_inner">
-                                            <ul class="add_to_links">
-                                                <li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a>
-                                                </li>
-                                                <li><a class="compare" href="wishlist.html"><i
-                                                        class="bi bi-heart-beat"></i></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="product__hover--content">
-                                        <ul class="rating d-flex">
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Start Single Product -->
-                        </div>
-                        <!-- Start Single Product -->
-                    </div>
-                    <div class="single__product">
-                        <!-- Start Single Product -->
-                        <div class="product product__style--3">
-                            <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                                <div class="product__thumb">
-                                    <a class="first__img" href="single-product.html"><img src="images/books/10-5.jpg"
-                                                                                          alt="product image"></a>
-                                    <div class="hot__box">
-                                        <span class="hot-label">5%</span>
-                                    </div>
-                                </div>
-                                <div class="product__content content--center">
-                                    <h4><a href="single-product.html">Miền đất hứa - tập 1</a></h4>
-                                    <ul class="prize d-flex">
-                                        <li>27.000đ</li>
-                                    </ul>
-                                    <ul class="prize d-flex">
-                                        <li class="old_prize">28.000đ</li>
-                                    </ul>
-
-                                    <div class="action">
-                                        <div class="actions_inner">
-                                            <ul class="add_to_links">
-                                                <li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a>
-                                                </li>
-                                                <li><a class="compare" href="wishlist.html"><i
-                                                        class="bi bi-heart-beat"></i></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="product__hover--content">
-                                        <ul class="rating d-flex">
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Start Single Product -->
-                        </div>
-                        <!-- Start Single Product -->
-                        <!-- Start Single Product -->
-                        <div class="product product__style--3">
-                            <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                                <div class="product__thumb">
-                                    <a class="first__img" href="single-product.html"><img src="images/books/10-6.jpg"
-                                                                                          alt="product image"></a>
-                                    <div class="hot__box color--2">
-                                        <span class="hot-label">6%</span>
-                                    </div>
-                                </div>
-                                <div class="product__content content--center">
-                                    <h4><a href="single-product.html">Miền đất hứa - tập 2</a></h4>
-                                    <ul class="prize d-flex">
-                                        <li>26.000đ</li>
-                                    </ul>
-                                    <ul class="prize d-flex">
-                                        <li class="old_prize">28.000đ</li>
-                                    </ul>
-
-                                    <div class="action">
-                                        <div class="actions_inner">
-                                            <ul class="add_to_links">
-                                                <li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a>
-                                                </li>
-                                                <li><a class="compare" href="wishlist.html"><i
-                                                        class="bi bi-heart-beat"></i></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="product__hover--content">
-                                        <ul class="rating d-flex">
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Start Single Product -->
-                        </div>
-                        <!-- Start Single Product -->
-                    </div>
-                    <div class="single__product">
-                        <!-- Start Single Product -->
-                        <div class="product product__style--3">
-                            <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                                <div class="product__thumb">
-                                    <a class="first__img" href="single-product.html"><img src="images/books/10-7.jpg"
-                                                                                          alt="product image"></a>
-                                    <a class="second__img animation1" href="single-product.html"><img
-                                            src="images/books/2.jpg"
-                                            alt="product image"></a>
-                                    <div class="hot__box">
-                                        <span class="hot-label">12%</span>
-                                    </div>
-                                </div>
-                                <div class="product__content content--center">
-                                    <h4><a href="single-product.html">Fairy Tail - tập 61</a></h4>
-                                    <ul class="prize d-flex">
-                                        <li>35.600đ</li>
-                                    </ul>
-                                    <ul class="prize d-flex">
-                                        <li class="old_prize">40.000đ</li>
-                                    </ul>
-
-                                    <div class="action">
-                                        <div class="actions_inner">
-                                            <ul class="add_to_links">
-                                                <li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a>
-                                                </li>
-                                                <li><a class="compare" href="wishlist.html"><i
-                                                        class="bi bi-heart-beat"></i></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="product__hover--content">
-                                        <ul class="rating d-flex">
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Start Single Product -->
-                        </div>
-                        <!-- Start Single Product -->
-                        <!-- Start Single Product -->
-                        <div class="product product__style--3">
-                            <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                                <div class="product__thumb">
-                                    <a class="first__img" href="single-product.html"><img src="images/books/10-8.jpg"
-                                                                                          alt="product image"></a>
-                                    <a class="second__img animation1" href="single-product.html"><img
-                                            src="images/books/2.jpg"
-                                            alt="product image"></a>
-                                    <div class="hot__box">
-                                        <span class="hot-label">15%</span>
-                                    </div>
-                                </div>
-                                <div class="product__content content--center">
-                                    <h4><a href="single-product.html">robin parrish</a></h4>
-                                    <ul class="prize d-flex">
-                                        <li>34.000đ</li>
-                                    </ul>
-                                    <ul class="prize d-flex">
-                                        <li class="old_prize">40.000đ</li>
-                                    </ul>
-
-                                    <div class="action">
-                                        <div class="actions_inner">
-                                            <ul class="add_to_links">
-                                                <li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a>
-                                                </li>
-                                                <li><a class="compare" href="wishlist.html"><i
-                                                        class="bi bi-heart-beat"></i></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="product__hover--content">
-                                        <ul class="rating d-flex">
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Start Single Product -->
-                        </div>
-                        <!-- Start Single Product -->
-                    </div>
-                    <div class="single__product">
-                        <!-- Start Single Product -->
-                        <div class="product product__style--3">
-                            <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                                <div class="product__thumb">
-                                    <a class="first__img" href="single-product.html"><img src="images/books/10-9.jpg"
-                                                                                          alt="product image"></a>
-                                    <a class="second__img animation1" href="single-product.html"><img
-                                            src="images/books/2.jpg"
-                                            alt="product image"></a>
-                                    <div class="hot__box">
-                                        <span class="hot-label">8%</span>
-                                    </div>
-                                </div>
-                                <div class="product__content content--center">
-                                    <h4><a href="single-product.html">7 viên ngọc rồng - tập 33</a></h4>
-                                    <ul class="prize d-flex">
-                                        <li>29.000đ</li>
-                                    </ul>
-                                    <ul class="prize d-flex">
-                                        <li class="old_prize">32.000đ</li>
-                                    </ul>
-
-                                    <div class="action">
-                                        <div class="actions_inner">
-                                            <ul class="add_to_links">
-                                                <li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a>
-                                                </li>
-                                                <li><a class="compare" href="wishlist.html"><i
-                                                        class="bi bi-heart-beat"></i></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="product__hover--content">
-                                        <ul class="rating d-flex">
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Start Single Product -->
-                        </div>
-                        <!-- Start Single Product -->
-                        <!-- Start Single Product -->
-                        <div class="product product__style--3">
-                            <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                                <div class="product__thumb">
-                                    <a class="first__img" href="single-product.html"><img src="images/books/10-10.jpg"
-                                                                                          alt="product image"></a>
-                                    <a class="second__img animation1" href="single-product.html"><img
-                                            src="images/books/2.jpg"
-                                            alt="product image"></a>
-                                    <div class="hot__box">
-                                        <span class="hot-label">BEST</span>
-                                    </div>
-                                </div>
-                                <div class="product__content content--center">
-                                    <h4><a href="single-product.html">7 viên ngọc rồng - tập 5</a></h4>
-                                    <ul class="prize d-flex">
-                                        <li>29.400đ</li>
-                                    </ul>
-                                    <ul class="prize d-flex">
-                                        <li class="old_prize">32.000đ</li>
-                                    </ul>
-
-                                    <div class="action">
-                                        <div class="actions_inner">
-                                            <ul class="add_to_links">
-                                                <li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a>
-                                                </li>
-                                                <li><a class="compare" href="wishlist.html"><i
-                                                        class="bi bi-heart-beat"></i></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="product__hover--content">
-                                        <ul class="rating d-flex">
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li class="on"><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Start Single Product -->
-                        </div>
-                        <!-- Start Single Product -->
-                    </div>
-                </div>
-            </div>
-            <!-- End Single Tab Content -->
-        </div>
+                        
     </div>
 </section>
 <!-- Start BEst Seller Area -->
@@ -2574,11 +535,11 @@
         </div>
     </div>
     <div id="owl-demo" class="owl-carousel owl-theme">
-
-        <div class="item">
+    <c:forEach var="sanpham" items="${listSanPham}">
+     <div class="item">
             <div class="product product__style--3">
                 <div class="product__thumb">
-                    <a class="first__img" href="single-product.html"><img src="images/books/10-1.jpg"
+                    <a class="first__img" href="single-product.html"><img src='<c:url value="${sanpham.getHinhsanpham()}"/>'
                                                                           alt="product image"></a>
                 </div>
                 <div class="product__content content--center">
@@ -2595,193 +556,13 @@
                 </div>
             </div>
         </div>
-        <div class="item">
-            <div class="product product__style--3">
-                <div class="product__thumb">
-                    <a class="first__img" href="single-product.html"><img src="images/books/10-2.jpg"
-                                                                          alt="product image"></a>
-                </div>
-                <div class="product__content content--center">
-                    <div class="action">
-                        <div class="actions_inner">
-                            <ul class="add_to_links">
-                                <li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a>
-                                </li>
-                                <li><a class="compare" href="wishlist.html"><i class="bi bi-heart-beat"></i></a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="item">
-            <div class="product product__style--3">
-                <div class="product__thumb">
-                    <a class="first__img" href="single-product.html"><img src="images/books/10-3.jpg"
-                                                                          alt="product image"></a>
-                </div>
-                <div class="product__content content--center">
-                    <div class="action">
-                        <div class="actions_inner">
-                            <ul class="add_to_links">
-                                <li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a>
-                                </li>
-                                <li><a class="compare" href="wishlist.html"><i class="bi bi-heart-beat"></i></a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="item">
-            <div class="product product__style--3">
-                <div class="product__thumb">
-                    <a class="first__img" href="single-product.html"><img src="images/books/10-4.jpg"
-                                                                          alt="product image"></a>
-                </div>
-                <div class="product__content content--center">
-                    <div class="action">
-                        <div class="actions_inner">
-                            <ul class="add_to_links">
-                                <li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a>
-                                </li>
-                                <li><a class="compare" href="wishlist.html"><i class="bi bi-heart-beat"></i></a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="item">
-            <div class="product product__style--3">
-                <div class="product__thumb">
-                    <a class="first__img" href="single-product.html"><img src="images/books/10-5.jpg"
-                                                                          alt="product image"></a>
-                </div>
-                <div class="product__content content--center">
-                    <div class="action">
-                        <div class="actions_inner">
-                            <ul class="add_to_links">
-                                <li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a>
-                                </li>
-                                <li><a class="compare" href="wishlist.html"><i class="bi bi-heart-beat"></i></a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="item">
-            <div class="product product__style--3">
-                <div class="product__thumb">
-                    <a class="first__img" href="single-product.html"><img src="images/books/10-6.jpg"
-                                                                          alt="product image"></a>
-                </div>
-                <div class="product__content content--center">
-                    <div class="action">
-                        <div class="actions_inner">
-                            <ul class="add_to_links">
-                                <li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a>
-                                </li>
-                                <li><a class="compare" href="wishlist.html"><i class="bi bi-heart-beat"></i></a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="item">
-            <div class="product product__style--3">
-                <div class="product__thumb">
-                    <a class="first__img" href="single-product.html"><img src="images/books/10-7.jpg"
-                                                                          alt="product image"></a>
-                </div>
-                <div class="product__content content--center">
-                    <div class="action">
-                        <div class="actions_inner">
-                            <ul class="add_to_links">
-                                <li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a>
-                                </li>
-                                <li><a class="compare" href="wishlist.html"><i class="bi bi-heart-beat"></i></a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="item">
-            <div class="product product__style--3">
-                <div class="product__thumb">
-                    <a class="first__img" href="single-product.html"><img src="images/books/10-8.jpg"
-                                                                          alt="product image"></a>
-                </div>
-                <div class="product__content content--center">
-                    <div class="action">
-                        <div class="actions_inner">
-                            <ul class="add_to_links">
-                                <li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a>
-                                </li>
-                                <li><a class="compare" href="wishlist.html"><i class="bi bi-heart-beat"></i></a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="item">
-            <div class="product product__style--3">
-                <div class="product__thumb">
-                    <a class="first__img" href="single-product.html"><img src="images/books/10-9.jpg"
-                                                                          alt="product image"></a>
-                </div>
-                <div class="product__content content--center">
-                    <div class="action">
-                        <div class="actions_inner">
-                            <ul class="add_to_links">
-                                <li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a>
-                                </li>
-                                <li><a class="compare" href="wishlist.html"><i class="bi bi-heart-beat"></i></a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="item">
-            <div class="product product__style--3">
-                <div class="product__thumb">
-                    <a class="first__img" href="single-product.html"><img src="images/books/10-10.jpg"
-                                                                          alt="product image"></a>
-                </div>
-                <div class="product__content content--center">
-                    <div class="action">
-                        <div class="actions_inner">
-                            <ul class="add_to_links">
-                                <li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a>
-                                </li>
-                                <li><a class="compare" href="wishlist.html"><i class="bi bi-heart-beat"></i></a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
+    </c:forEach>
     </div>
     <div class="customNavigation" style="text-align: center">
         <button class=" button play" title="Phát"><i class="bi bi-play-button fa-2x"></i></button>
         <button class=" button stop" title="Dừng"><i class="bi bi-stop-watch fa-2x"></i></button>
     </div>
+    
 </section>
 <!-- Best Sale Area Area -->
 <script>
