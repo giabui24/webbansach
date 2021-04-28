@@ -6,5 +6,6 @@ import com.buihoanggia.entity.SanPham;
 
 public interface SanPhamImp {
 	List<SanPham> LayDanhSachSanPhamLimit(int spbatdau);
+	SanPham LayDanhSachChiTietSanPhamTheoMa(int masanpham);
 
 }

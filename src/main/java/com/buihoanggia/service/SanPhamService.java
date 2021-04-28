@@ -18,5 +18,11 @@ SanPhamDao sanPhamDao;
 		
 		return sanPhamDao.LayDanhSachSanPhamLimit(spbatdau);
 	}
+	@Override
+	public SanPham LayDanhSachChiTietSanPhamTheoMa(int masanpham) {
+		// TODO Auto-genera
+				return sanPhamDao.LayDanhSachChiTietSanPhamTheoMa(masanpham);
+
+	}
 
 }

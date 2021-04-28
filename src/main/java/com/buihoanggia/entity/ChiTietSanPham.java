@@ -24,6 +24,7 @@ TacGia tacGia;
 NhaXuatBan nhaXuatBan;
 int soluong;
 int ngaynhap;
+public ChiTietSanPham() {}
 public int getMachitietsanpham() {
 	return machitietsanpham;
 }

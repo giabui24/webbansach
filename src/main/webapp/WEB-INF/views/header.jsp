@@ -49,7 +49,7 @@
                 <div class="col-lg-8 d-none d-lg-block">
                     <nav class="mainmenu__nav">
                         <ul class="meninmenu d-flex justify-content-start">
-                            <li class="drop with--one--item"><a class="active" href="index.html">Trang chủ</a></li>
+                            <li class="drop with--one--item"><a class="active" href='<c:url value="/"/>'>Trang chủ</a></li>
                             <li class="drop"><a href="#">Thể loại</a>
                                 <div class="megamenu mega03">
                                     <ul class="item item03">

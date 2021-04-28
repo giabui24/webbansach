@@ -70,14 +70,14 @@
             <div class="product product__style--3">
                 <div class="col-lg-3 col-md-4 col-sm-6 col-12">
                     <div class="product__thumb">
-                        <a class="first__img" href="single-product.html"><img src= '<c:url value="${sanpham.getHinhsanpham()}"/>'
+                        <a class="first__img" href='<c:url value="/chitiet/${sanpham.getMasanpham()}"/>'><img src= '<c:url value="${sanpham.getHinhsanpham()}"/>'
                                                                               alt="product image"></a>
                         <div class="hot__box">
                             <span class="hot-label">22%</span>
                         </div>
                     </div>
                     <div class="product__content content--center">
-                        <h4><a href="single-product.html">${sanpham.getTensanpham()}</a></h4>
+                        <h4><a href='<c:url value="/chitiet/${sanpham.getMasanpham()}"/>'>${sanpham.getTensanpham()}</a></h4>
                         <ul class="prize d-flex">
                             <li>50.000đ</li>
                         </ul>
@@ -234,14 +234,14 @@
                             <div class="col-lg-3 col-md-4 col-sm-6 col-12">
                             
                                 <div class="product__thumb">
-                                    <a class="first__img" href="single-product.html"><img src='<c:url value="${sanpham.getHinhsanpham()}"/>'
+                                    <a class="first__img" href='<c:url value="/chitiet/${sanpham.getMasanpham()}"/>'><img src='<c:url value="${sanpham.getHinhsanpham()}"/>'
                                                                                           alt="product image"></a>
                                     <div class="hot__box color--2">
                                         <span class="hot-label">10%</span>
                                     </div>
                                 </div>
                                 <div class="product__content content--center">
-                                    <h4><a href="single-product.html">${sanpham.getTensanpham()}</a></h4>
+                                    <h4><a href='<c:url value="/chitiet/${sanpham.getMasanpham()}"/>'>${sanpham.getTensanpham()}</a></h4>
                                     <ul class="prize d-flex">
                                         <li>43.000đ</li>
                                     </ul>
@@ -294,14 +294,14 @@
                         <div class="product product__style--3">
                             <div class="col-lg-3 col-md-4 col-sm-6 col-12">
                                 <div class="product__thumb">
-                                    <a class="first__img" href="single-product.html"><img src='<c:url value="${sanpham.getHinhsanpham()}"/>'
+                                    <a class="first__img" href='<c:url value="/chitiet/${sanpham.getMasanpham()}"/>'><img src='<c:url value="${sanpham.getHinhsanpham()}"/>'
                                                                                           alt="product image"></a>
                                     <div class="hot__box">
                                         <span class="hot-label">10%</span>
                                     </div>
                                 </div>
                                 <div class="product__content content--center">
-                                    <h4><a href="single-product.html">${sanpham.getTensanpham()}</a></h4>
+                                    <h4><a href='<c:url value="/chitiet/${sanpham.getMasanpham()}"/>'>${sanpham.getTensanpham()}</a></h4>
                                     <ul class="prize d-flex">
                                         <li>34.000đ</li>
                                     </ul>
@@ -353,14 +353,14 @@
                         <div class="product product__style--3">
                             <div class="col-lg-3 col-md-4 col-sm-6 col-12">
                                 <div class="product__thumb">
-                                    <a class="first__img" href="single-product.html"><img src='<c:url value="${sanpham.getHinhsanpham()}"/>'
+                                    <a class='<c:url value="/chitiet/${sanpham.getMasanpham()}"/>' href="single-product.html"><img src='<c:url value="${sanpham.getHinhsanpham()}"/>'
                                                                                           alt="product image"></a>
                                     <div class="hot__box color--2">
                                         <span class="hot-label">15%</span>
                                     </div>
                                 </div>
                                 <div class="product__content content--center">
-                                    <h4><a href="single-product.html">${sanpham.getTensanpham()}</a></h4>
+                                    <h4><a href='<c:url value="/chitiet/${sanpham.getMasanpham()}"/>'>${sanpham.getTensanpham()}</a></h4>
                                     <ul class="prize d-flex">
                                         <li>36.000đ</li>
                                     </ul>
@@ -411,14 +411,14 @@
                         <div class="product product__style--3">
                             <div class="col-lg-3 col-md-4 col-sm-6 col-12">
                                 <div class="product__thumb">
-                                    <a class="first__img" href="single-product.html"><img src='<c:url value="${sanpham.getHinhsanpham()}"/>'
+                                    <a class="first__img" href='<c:url value="/chitiet/${sanpham.getMasanpham()}"/>'><img src='<c:url value="${sanpham.getHinhsanpham()}"/>'
                                                                                           alt="product image"></a>
                                     <div class="hot__box">
                                         <span class="hot-label">10%</span>
                                     </div>
                                 </div>
                                 <div class="product__content content--center">
-                                    <h4><a href="single-product.html">${sanpham.getTensanpham()}</a></h4>
+                                    <h4><a href='<c:url value="/chitiet/${sanpham.getMasanpham()}"/>'>${sanpham.getTensanpham()}</a></h4>
                                     <ul class="prize d-flex">
                                         <li>34.000đ</li>
                                     </ul>
@@ -467,14 +467,14 @@
                         <div class="product product__style--3">
                             <div class="col-lg-3 col-md-4 col-sm-6 col-12">
                                 <div class="product__thumb">
-                                    <a class="first__img" href="single-product.html"><img src='<c:url value="${sanpham.getHinhsanpham()}"/>'
+                                    <a class="first__img" href='<c:url value="/chitiet/${sanpham.getMasanpham()}"/>'><img src='<c:url value="${sanpham.getHinhsanpham()}"/>'
                                                                                           alt="product image"></a>
                                     <div class="hot__box">
                                         <span class="hot-label">10%</span>
                                     </div>
                                 </div>
                                 <div class="product__content content--center">
-                                    <h4><a href="single-product.html">${sanpham.getTensanpham()}</a></h4>
+                                    <h4><a href='<c:url value="/chitiet/${sanpham.getMasanpham()}"/>'>${sanpham.getTensanpham()}</a></h4>
                                     <ul class="prize d-flex">
                                         <li>34.000đ</li>
                                     </ul>
@@ -539,7 +539,7 @@
      <div class="item">
             <div class="product product__style--3">
                 <div class="product__thumb">
-                    <a class="first__img" href="single-product.html"><img src='<c:url value="${sanpham.getHinhsanpham()}"/>'
+                    <a class="first__img" href='<c:url value="/chitiet/${sanpham.getMasanpham()}"/>'><img src='<c:url value="${sanpham.getHinhsanpham()}"/>'
                                                                           alt="product image"></a>
                 </div>
                 <div class="product__content content--center">
