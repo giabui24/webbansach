@@ -110,10 +110,16 @@
                         <li class="wishlist"><a href="wishlist.html"><i class="fa fa-heart"></i> Yêu thích</a></li>
                         <li class="shopcart wishlist">
 
-                            <a href="cart.html">
-                                <div>
-                                    <i class="fa fa-shopping-cart"></i><span> Giỏ hàng<span class="product_qun">3</span></span>
+                            <a href='<c:url value="/giohang/"/>'>
+                                <div id="giohang">
+                                <c:if test="${soluongsanphamgiohang>0}">
+                                    <i class="fa fa-shopping-cart"></i><b> Giỏ hàng<span class="product_qun">${soluongsanphamgiohang}</span></b>
                                 </div>
+                                </c:if>
+                                <c:if test="${soluongsanphamgiohang<0 || soluongsanphamgiohang ==null}">
+                                    <i class="fa fa-shopping-cart"></i><b> Giỏ hàng<span>${soluongsanphamgiohang}</span></b>
+                                </div>
+                                </c:if>
 
                             </a>
                         </li>
@@ -210,6 +216,6 @@
     <!-- End Search Popup -->
         </div>
     </header>
-
+<script src='<c:url value="/resources/js/custom.js"/>'></script>
 </body>
 </html>

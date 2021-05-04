@@ -38,49 +38,65 @@ public class ApiController {
 		return ""+kiemtra ;
 		
 	}
+	
+	@GetMapping("CapNhatGioHang")
+	@ResponseBody
+	public void CapNhatGioHang(HttpSession httpSession, @RequestParam String soluong,@RequestParam String masanpham) {
+		if (null!=httpSession.getAttribute("giohang")) {
+			List<GioHang> listgioHangs = (List<GioHang>) httpSession.getAttribute("giohang");
+			int vitri =KiemTraSanPham(listgioHangs, Integer.parseInt(masanpham), httpSession);
+			listgioHangs.get(vitri).setSoluong(Integer.parseInt(soluong));
+		}
+		
+	}
+	
 	@GetMapping("ThemGioHang")
-	public void ThemGioHang(@RequestParam String tensp ,@RequestParam String giatien,@RequestParam String soluong,@RequestParam String masanpham,HttpSession httpSession) {
+	@ResponseBody
+	public String ThemGioHang(@RequestParam String hinhsanpham,@RequestParam String tensp ,@RequestParam String giatien,@RequestParam String soluong,@RequestParam String masanpham,HttpSession httpSession) {
 		if (null==httpSession.getAttribute("giohang")) {
 			List<GioHang> gioHangs = new ArrayList<GioHang>();
 			GioHang giohang = new GioHang();
+			giohang.setHinhsanpham(hinhsanpham);
 			giohang.setTensp(tensp);
 			giohang.setSoluong(Integer.parseInt(soluong));
 			giohang.setGiatien(Integer.parseInt(giatien));
 			giohang.setMasanpham(Integer.parseInt(masanpham));
 			gioHangs.add(giohang);
 			httpSession.setAttribute("giohang", gioHangs);
+			return gioHangs.size()+"";
 		}else {
 			List<GioHang> listgioHangs = (List<GioHang>) httpSession.getAttribute("giohang");
 			int vitri = KiemTraSanPham(listgioHangs,Integer.parseInt(masanpham), httpSession);
 			if (vitri ==-1) {
 				
 				GioHang giohang = new GioHang();
+				giohang.setHinhsanpham(hinhsanpham);
 				giohang.setTensp(tensp);
 				giohang.setSoluong(Integer.parseInt(soluong));
 				giohang.setGiatien(Integer.parseInt(giatien));
 				giohang.setMasanpham(Integer.parseInt(masanpham));
 				listgioHangs.add(giohang);
+			
 			}else {
-		
-			int soluongmoi = listgioHangs.get(vitri).getSoluong()+1;
+		 GioHang giohang = new GioHang();
+		 giohang.setSoluong(Integer.parseInt(soluong));
+			int soluongmoi = listgioHangs.get(vitri).getSoluong()+giohang.getSoluong();
 			listgioHangs.get(vitri).setSoluong(soluongmoi);
 			
 			}
 			
-			
+			return listgioHangs.size()+"";	
 			
 		}
 		
-		List<GioHang> listgioHangs = (List<GioHang>) httpSession.getAttribute("giohang");
-		for (GioHang gohang : listgioHangs) {
-			System.out.println(gohang.getMasanpham()+"_"+gohang.getTensp()+"_"+gohang.getGiatien()+"_"+gohang.getSoluong());
+	
 		}
 		
 		
 		
 		
 		
-	}
+	
 private int KiemTraSanPham(List<GioHang> listgioHangs,int masanpham,HttpSession httpSession) {
 	
 	for (int i = 0; i < listgioHangs.size(); i++) {
@@ -93,4 +109,12 @@ private int KiemTraSanPham(List<GioHang> listgioHangs,int masanpham,HttpSession 
 	return -1;
 	
 }
+/*
+ * @GetMapping("LaySoLuongGioHang")
+ * 
+ * @ResponseBody public String LaySoLuongGioHang(HttpSession httpSession) { if
+ * (null != httpSession.getAttribute("giohang")) { List<GioHang> gioHangs =
+ * (List<GioHang>) httpSession.getAttribute("giohang"); return
+ * gioHangs.size()+""; } return ""; }
+ */
 }

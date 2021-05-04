@@ -38,8 +38,8 @@
                         <div class="row">
                             <div class="col-lg-5 col-12">
                                 <div class="wn__fotorama__wrapper">
-                                    <div class="fotorama wn__fotorama__action" data-nav="thumbs">
-                                        <a id="hinha" data-value="${sanpham.getHinhsanpham()}" href="1.jpg"><img 
+                                    <div id="hinha" data-value="${sanpham.getHinhsanpham()}" class="fotorama wn__fotorama__action" data-nav="thumbs">
+                                        <a href="1.jpg"><img 
                                                 src='<c:url value="${sanpham.getHinhsanpham()}"/>'
                                                 alt=""></a>
                                         <a href="2.jpg"><img src="images/books/biasau.jpg" alt=""></a>
