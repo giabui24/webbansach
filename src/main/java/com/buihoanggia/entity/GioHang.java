@@ -3,6 +3,7 @@ package com.buihoanggia.entity;
 public class GioHang {
 int masanpham;
 int manhatacgia;
+int machitiet;
 int manhaxuatban;
 String tensp;
 int giatien;
@@ -11,6 +12,12 @@ String nhaxuatban;
 int soluong;
 String hinhsanpham;
 
+public int getMachitiet() {
+	return machitiet;
+}
+public void setMachitiet(int machitiet) {
+	this.machitiet = machitiet;
+}
 public String getHinhsanpham() {
 	return hinhsanpham;
 }

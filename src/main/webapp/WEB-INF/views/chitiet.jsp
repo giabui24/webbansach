@@ -60,9 +60,7 @@
                                                <p>• Xuất bản năm 2018</p>
                                             <p>• Tác giả:${chitietsanpham.getTacGia().getTentacgia() } </p>
                                             <p id="masanpham" data-value="${sanpham.getMasanpham()}">• Chính sách giao hàng</p>
-                                             </c:forEach>
-                                           
-                                           
+                                             
                                         </div>
                                         <div class="product-addto-links clearfix">
                                             <a class="wishlist" href="wishlist.html"><i
@@ -76,10 +74,11 @@
                                         <input id="qty" class="input-text qty" name="qty" min="1" value="1" title="Qty"
                                                type="number">
                                         <div class="addtocart__actions">
-                                            <button class="tocart" type="submit"><i
+                                            <button data-machitiet="${chitietsanpham.getMachitietsanpham()}" class="tocart" type="submit"><i
                                                     class="fa fa-shopping-cart"></i> Thêm vào giỏ hàng
                                             </button>
                                         </div>
+                                         </c:forEach> 
                                     </div>
                                 </div>
                             </div>

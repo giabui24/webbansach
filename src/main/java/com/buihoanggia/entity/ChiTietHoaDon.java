@@ -10,6 +10,7 @@ public class ChiTietHoaDon {
 	ChiTietHoaDonId chiTietHoaDonId;
 	int soluong;
 	int giatien;
+	public ChiTietHoaDon() {}
 	public ChiTietHoaDonId getChiTietHoaDonId() {
 		return chiTietHoaDonId;
 	}

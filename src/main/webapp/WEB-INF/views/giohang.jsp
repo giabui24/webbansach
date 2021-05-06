@@ -47,7 +47,7 @@
                                 </thead>
                                 <tbody>
                                 <c:forEach var="giohang" items="${giohang}">
-                                 <tr>
+                                 <tr data="${giohang.getMachitiet()}">
                                     <td class="product-name"><a href="#"><img
                                             src='<c:url value="${giohang.getHinhsanpham()}"/>'
                                             alt="product img"></a>
@@ -57,9 +57,9 @@
                                     <td class="product-price" data="${giohang.getGiatien()}"><span class="amount" >${giohang.getGiatien()}đ</span></td>
                                     <td class="product-quantity"><input class="soluong-giohang" type="number" min="1" value="${giohang.getSoluong()}"></td>
                                     <td class="product-subtotal tientong" data="${giohang.getGiatien()*giohang.getSoluong()}">${giohang.getGiatien()*giohang.getSoluong()}</td>
-                                    <td class="product-remove"><a href="#">
+                                    <td class="product-remove">
                                         <button class="buttondel">×</button>
-                                    </a></td>
+                                    </td>
                                 </tr>
                                 </c:forEach>
                                 </tbody>
@@ -75,7 +75,7 @@
                         </div>
                         <div class="cartbox__btn  ">
                             <ul class="cart__btn__list d-flex flex-wrap flex-md-nowrap flex-lg-nowrap justify-content-between">
-                                <li><a href="#">Tiến hành đặt hàng</a></li>
+                                <li><a href='<c:url value="/thanhtoan/"/>'>Tiến hành đặt hàng</a></li>
                             </ul>
                         </div>
                     </div>

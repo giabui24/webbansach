@@ -49,13 +49,24 @@ public class ApiController {
 		}
 		
 	}
+	@GetMapping("XoaGioHang")
+	@ResponseBody
+	public void XoaGioHang(HttpSession httpSession,@RequestParam String masanpham) {
+		if (null!=httpSession.getAttribute("giohang")) {
+			List<GioHang> listgioHangs = (List<GioHang>) httpSession.getAttribute("giohang");
+			int vitri =KiemTraSanPham(listgioHangs, Integer.parseInt(masanpham), httpSession);
+			listgioHangs.remove(vitri);
+		}
+		
+	}
 	
 	@GetMapping("ThemGioHang")
 	@ResponseBody
-	public String ThemGioHang(@RequestParam String hinhsanpham,@RequestParam String tensp ,@RequestParam String giatien,@RequestParam String soluong,@RequestParam String masanpham,HttpSession httpSession) {
+	public String ThemGioHang(@RequestParam String machitiet,@RequestParam String hinhsanpham,@RequestParam String tensp ,@RequestParam String giatien,@RequestParam String soluong,@RequestParam String masanpham,HttpSession httpSession) {
 		if (null==httpSession.getAttribute("giohang")) {
 			List<GioHang> gioHangs = new ArrayList<GioHang>();
 			GioHang giohang = new GioHang();
+			giohang.setMachitiet(Integer.parseInt(machitiet));
 			giohang.setHinhsanpham(hinhsanpham);
 			giohang.setTensp(tensp);
 			giohang.setSoluong(Integer.parseInt(soluong));
@@ -70,6 +81,7 @@ public class ApiController {
 			if (vitri ==-1) {
 				
 				GioHang giohang = new GioHang();
+				giohang.setMachitiet(Integer.parseInt(machitiet));
 				giohang.setHinhsanpham(hinhsanpham);
 				giohang.setTensp(tensp);
 				giohang.setSoluong(Integer.parseInt(soluong));

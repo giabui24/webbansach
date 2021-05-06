@@ -20,9 +20,19 @@ String sdt;
 String diachigiaohang;
 boolean tinhtrang;
 String ngaylap;
+String hinhthucgiaohang;
 @OneToMany(cascade = CascadeType.ALL)
 @JoinColumn(name="mahoadon")
 Set<ChiTietHoaDon> danhsachChiTietHoaDons;
+public HoaDon() {}
+
+public String getHinhthucgiaohang() {
+	return hinhthucgiaohang;
+}
+
+public void setHinhthucgiaohang(String hinhthucgiaohang) {
+	this.hinhthucgiaohang = hinhthucgiaohang;
+}
 
 public Set<ChiTietHoaDon> getDanhsachChiTietHoaDons() {
 	return danhsachChiTietHoaDons;
