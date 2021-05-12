@@ -20,7 +20,7 @@ public class DanhMucSanPham {
 	@JoinColumn(name ="madanhmuc" )
 	Set<SanPham> danhsachsanpham;
 	
-	
+	public DanhMucSanPham() {}
 	public Set<SanPham> getDanhsachsanpham() {
 		return danhsachsanpham;
 	}

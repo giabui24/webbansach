@@ -51,35 +51,15 @@
                         <ul class="meninmenu d-flex justify-content-start">
                             <li class="drop with--one--item"><a class="active" href='<c:url value="/"/>'>Trang chủ</a></li>
                             <li class="drop"><a href="#">Thể loại</a>
-                                <div class="megamenu mega03">
-                                    <ul class="item item03">
-                                        <li class="title">Văn học</li>
-                                        <li><a href="shop-grid.html">Tiểu thuyết</a></li>
-                                        <li><a href="shop-grid.html">Truyện ngắn</a></li>
-                                        <li><a href="shop-grid.html">Ngôn tình</a></li>
-                                        <li><a href="shop-grid.html">Tác phẩm nước ngoài</a></li>
+                                <div class="megamenu dropdown">
+                              
+                                    <ul class="item item01">
+                                        <li class="title">"Đọc sách cho tâm trí cũng cần như tập thể dục cho cơ thể. "</li>
+                                          <c:forEach var="danhmuc" items="${DanhMuc}">
+                                        <li><a href="shop-grid.html">${danhmuc.getTendanhmuc() }</a></li>
+                                        </c:forEach>
                                     </ul>
-                                    <ul class="item item03">
-                                        <li class="title">Sách thiếu nhi</li>
-                                        <li><a href="shop-grid.html">Kĩ năng sống</a></li>
-                                        <li><a href="shop-grid.html">Vừa học vừa chơi</a></li>
-                                        <li><a href="shop-grid.html">Truyện cổ tích</a></li>
-                                        <li><a href="shop-grid.html">Truyện nước ngoài</a></li>
-                                    </ul>
-                                    <ul class="item item03">
-                                        <li class="title">Sách kinh tế</li>
-                                        <li><a href="shop-grid.html">Bài học kinh doanh</a></li>
-                                        <li><a href="shop-grid.html">Marketing - Bán hàng</a></li>
-                                        <li><a href="shop-grid.html">Quản trị - Lãnh đạo</a></li>
-                                        <li><a href="shop-grid.html">Kỹ năng làm việc</a></li>
-                                    </ul>
-                                    <ul class="item item03">
-                                        <li class="title">Học tập</li>
-                                        <li><a href="shop-grid.html">Tiếng Anh</a></li>
-                                        <li><a href="shop-grid.html">Tiếng Nhật</a></li>
-                                        <li><a href="shop-grid.html">Công nghệ thông tin</a></li>
-                                        <li><a href="shop-grid.html">Y học</a></li>
-                                    </ul>
+                                    
                                 </div>
                             </li>
                             <li class="drop"><a href="#">Khuyên đọc</a>

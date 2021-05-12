@@ -2,6 +2,9 @@ package com.buihoanggia.entity;
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 
 @Entity(name ="CHITIETHOADON")

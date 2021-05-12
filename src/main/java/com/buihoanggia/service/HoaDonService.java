@@ -13,7 +13,7 @@ public class HoaDonService implements HoaDonImp {
 HoaDonDao hoaDonDao;
 
 @Override
-public boolean ThemHoaDon(HoaDon hoadon) {
+public int ThemHoaDon(HoaDon hoadon) {
 	// TODO Auto-generated method stub
 	return hoaDonDao.ThemHoaDon(hoadon);
 

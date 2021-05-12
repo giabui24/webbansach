@@ -1,5 +1,7 @@
 package com.buihoanggia.dao;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.hibernate.Session;
@@ -9,27 +11,20 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Repository;
 
-import com.buihoanggia.daoimp.HoaDonImp;
-import com.buihoanggia.entity.HoaDon;
+import com.buihoanggia.entity.DanhMucSanPham;
+
+
 
 @Repository
 @Scope(proxyMode = ScopedProxyMode.TARGET_CLASS)
-public class HoaDonDao implements HoaDonImp {
-	
-@Autowired
-SessionFactory sessionFactory;
-	@Override
+public class DanhMucSanPhamDao {
+	@Autowired
+	SessionFactory sessionFactory;
 	@Transactional
-	public int ThemHoaDon(HoaDon hoadon) {
+	public List<DanhMucSanPham> LayDanhMucSanPham() {
 		// TODO Auto-generated method stub
-		Session session = sessionFactory.getCurrentSession();
-		int id = (int) session.save(hoadon);
-		if (0<id) {
-			return id;
-		}else {
-			return 0;
-		}
-	
+		 Session session = sessionFactory.getCurrentSession();
+		 List<DanhMucSanPham> listDanhMucSanPhams =( List<DanhMucSanPham>) session.createQuery("from DANHMUCSANPHAM").getResultList();
+		return listDanhMucSanPhams;
 	}
-
 }

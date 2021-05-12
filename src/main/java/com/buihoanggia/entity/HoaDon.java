@@ -22,7 +22,7 @@ boolean tinhtrang;
 String ngaylap;
 String hinhthucgiaohang;
 @OneToMany(cascade = CascadeType.ALL)
-@JoinColumn(name="mahoadon")
+@JoinColumn(name="mahoadon") 
 Set<ChiTietHoaDon> danhsachChiTietHoaDons;
 public HoaDon() {}
 

@@ -1,6 +1,6 @@
 package com.buihoanggia.controller;
 
-import java.util.ArrayList;
+
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -20,58 +20,62 @@ import com.buihoanggia.entity.ChiTietHoaDon;
 import com.buihoanggia.entity.ChiTietHoaDonId;
 import com.buihoanggia.entity.GioHang;
 import com.buihoanggia.entity.HoaDon;
+import com.buihoanggia.service.ChiTietHoaDonService;
 import com.buihoanggia.service.HoaDonService;
 
 @Controller
 @RequestMapping("thanhtoan/")
 public class ThanhToanController {
 	@Autowired
-	HoaDonService HoaDonService;
+	HoaDonService hoaDonService;
+	
+	@Autowired
+	ChiTietHoaDonService chiTietHoaDonService;
+
 	@GetMapping
-	public String Default(HttpSession httpSession,ModelMap modelMap) {
+	public String Default(HttpSession httpSession, ModelMap modelMap) {
 		if (null != httpSession.getAttribute("giohang")) {
 			List<GioHang> gioHangs = (List<GioHang>) httpSession.getAttribute("giohang");
-			  modelMap.addAttribute("soluongsanphamgiohang",gioHangs.size());
-			  modelMap.addAttribute("giohang", gioHangs);
+			modelMap.addAttribute("soluongsanphamgiohang", gioHangs.size());
+			modelMap.addAttribute("giohang", gioHangs);
 		}
-			
+
 		return "/thanhtoan";
 	}
 
- @GetMapping("ThemHoaDon")
- @ResponseBody
- public String ThemHoaDon(@RequestParam String tenkhachhang,@RequestParam String sdt,
-		 @RequestParam String diachigiaohang,
-		 @RequestParam String hinhthucgiaohang,HttpSession httpSession){
-	 if (null != httpSession.getAttribute("giohang")) {
+	@GetMapping("ThemHoaDon")
+	@ResponseBody
+	public String ThemHoaDon(@RequestParam String tenkhachhang, @RequestParam String sdt,
+			@RequestParam String diachigiaohang, @RequestParam String hinhthucgiaohang, HttpSession httpSession) {
+		if (null != httpSession.getAttribute("giohang")) {
 			List<GioHang> gioHangs = (List<GioHang>) httpSession.getAttribute("giohang");
 
-			 HoaDon hoaDon = new HoaDon();
-			 hoaDon.setTenkhachhang(tenkhachhang);
-			 hoaDon.setSdt(sdt);
-			 hoaDon.setDiachigiaohang(diachigiaohang);
-			 hoaDon.setHinhthucgiaohang(hinhthucgiaohang);
-			 Set<ChiTietHoaDon> listChiTietHoaDons = new HashSet<ChiTietHoaDon>();
-			for (GioHang gioHang : gioHangs) {
-				ChiTietHoaDonId chiTietHoaDonId = new ChiTietHoaDonId();
-				 chiTietHoaDonId.setMachitietsanpham(gioHang.getMachitiet());
-				 ChiTietHoaDon chiTietHoaDon = new ChiTietHoaDon();
-				 chiTietHoaDon.setGiatien(gioHang.getGiatien());
-				 chiTietHoaDon.setSoluong(gioHang.getSoluong());
-				 listChiTietHoaDons.add(chiTietHoaDon);
-			}
-			hoaDon.setDanhsachChiTietHoaDons(listChiTietHoaDons);
-			 
-			 if (HoaDonService.ThemHoaDon(hoaDon)) {
-					System.out.println("ThemThanhCong");
-				}else {
-					System.out.println("ThemThanhThu");
+			HoaDon hoaDon = new HoaDon();
+			hoaDon.setTenkhachhang(tenkhachhang);
+			hoaDon.setSdt(sdt);
+			hoaDon.setDiachigiaohang(diachigiaohang);
+			hoaDon.setHinhthucgiaohang(hinhthucgiaohang);
+			int idHoaDon = hoaDonService.ThemHoaDon(hoaDon);
+			if (0<idHoaDon) {
+				Set<ChiTietHoaDon> listChiTietHoaDons = new HashSet<ChiTietHoaDon>();
+				for (GioHang gioHang : gioHangs) {
+					ChiTietHoaDonId chiTietHoaDonId = new ChiTietHoaDonId();
+					chiTietHoaDonId.setMachitietsanpham(gioHang.getMachitiet());
+					chiTietHoaDonId.setMahoadon(hoaDon.getMahoadon());
+					ChiTietHoaDon chiTietHoaDon = new ChiTietHoaDon();
+					chiTietHoaDon.setChiTietHoaDonId(chiTietHoaDonId);
+					chiTietHoaDon.setGiatien(gioHang.getGiatien());
+					chiTietHoaDon.setSoluong(gioHang.getSoluong());
+					chiTietHoaDonService.ThemChiTietHoaDon(chiTietHoaDon);
+
 				}
+
+			} else {
+System.err.println("Them tb");
+			};
+
+		
 		}
-			
-	 
-	 
-	
-	 return "/thanhtoan";
- }
+		return "/trangchu";
+	}
 }
