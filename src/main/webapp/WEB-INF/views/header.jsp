@@ -56,23 +56,20 @@
                                     <ul class="item item01">
                                         <li class="title">"Đọc sách cho tâm trí cũng cần như tập thể dục cho cơ thể. "</li>
                                           <c:forEach var="danhmuc" items="${DanhMuc}">
-                                        <li><a href="shop-grid.html">${danhmuc.getTendanhmuc() }</a></li>
+                                        <li><a href="danhmucsanpham/${danhmuc.getMadanhmuc() }">${danhmuc.getTendanhmuc() }</a></li>
                                         </c:forEach>
                                     </ul>
                                     
                                 </div>
                             </li>
-                            <li class="drop"><a href="#">Khuyên đọc</a>
+                            <li class="drop"><a href="#">Nhà Xuất Bản</a>
                                 <div class="megamenu dropdown">
                                     <ul class="item item01">
                                         <li class="title">"Đọc sách cho tâm trí cũng cần như tập thể dục cho cơ thể. "
                                         </li>
-                                        <li><a href="single-product.html">Yêu đi đừng sợ</a></li>
-                                        <li><a href="single-product.html">Đối nhân khéo - Xử thế hay</a></li>
-                                        <li><a href="single-product.html">Lãnh đạo bằng câu hỏi</a></li>
-                                        <li><a href="single-product.html">Sức mạnh tình bạn</a></li>
-                                        <li><a href="single-product.html">Mặt nạ sự sống</a></li>
-                                        <li><a href="single-product.html">Yêu thương cuộc sống</a></li>
+                                        <c:forEach var="nhaxuatban" items="${NhaXuatBan}">
+                                        <li><a href="danhmucsanpham/${nhaxuatban.getManhaxuatban()}">${nhaxuatban.getTennhaxuatban() }</a></li>
+                                      	</c:forEach>
                                     </ul>
                                 </div>
                             </li>

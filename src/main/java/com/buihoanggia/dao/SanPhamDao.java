@@ -43,4 +43,15 @@ public SanPham LayDanhSachChiTietSanPhamTheoMa(int masanpham) {
 	
 	return sanPham;
 }
+
+
+@Override
+@Transactional
+public List<SanPham> LayDanhSachSanPhamTheoMaDanhMuc(int madanhmuc) {
+	// TODO Auto-generated method stub
+	Session session = sessionFactory.getCurrentSession();
+	String query="from SANPHAM sp where sp.danhMucSanPham.madanhmuc ="+ madanhmuc;
+	List<SanPham> listSanPhams =( List<SanPham>) session.createQuery(query).getResultList();
+	return listSanPhams;
+}
 }

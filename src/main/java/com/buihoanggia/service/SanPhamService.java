@@ -24,5 +24,10 @@ SanPhamDao sanPhamDao;
 				return sanPhamDao.LayDanhSachChiTietSanPhamTheoMa(masanpham);
 
 	}
+	@Override
+	public List<SanPham> LayDanhSachSanPhamTheoMaDanhMuc(int madanhmuc) {
+		// TODO Auto-generated method stub
+		return sanPhamDao.LayDanhSachSanPhamTheoMaDanhMuc(madanhmuc);
+	}
 
 }

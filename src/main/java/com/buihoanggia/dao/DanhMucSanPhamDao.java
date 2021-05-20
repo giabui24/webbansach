@@ -12,6 +12,7 @@ import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Repository;
 
 import com.buihoanggia.entity.DanhMucSanPham;
+import com.buihoanggia.entity.NhaXuatBan;
 
 
 
@@ -26,5 +27,12 @@ public class DanhMucSanPhamDao {
 		 Session session = sessionFactory.getCurrentSession();
 		 List<DanhMucSanPham> listDanhMucSanPhams =( List<DanhMucSanPham>) session.createQuery("from DANHMUCSANPHAM").getResultList();
 		return listDanhMucSanPhams;
+	}
+	@Transactional
+	public List<NhaXuatBan> LayNhaXuatBan() {
+		// TODO Auto-generated method stub
+		 Session session = sessionFactory.getCurrentSession();
+		 List<NhaXuatBan> listNhaXuatBans =( List<NhaXuatBan>) session.createQuery("from NHAXUATBAN").getResultList();
+		return listNhaXuatBans;
 	}
 }

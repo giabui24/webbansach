@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.buihoanggia.entity.DanhMucSanPham;
 import com.buihoanggia.entity.GioHang;
+import com.buihoanggia.entity.NhaXuatBan;
 import com.buihoanggia.entity.SanPham;
 import com.buihoanggia.service.DanhMucSanPhamService;
 import com.buihoanggia.service.SanPhamService;
@@ -35,8 +36,10 @@ public class TrangChuController {
 	public String Default(ModelMap modelMap,HttpSession httpSession) {
 		List<SanPham> listSanPhams = sanPhamService.LayDanhSachSanPhamLimit(0);
 		List<DanhMucSanPham> listDanhMucSanPhams = danhMucSanPhamService.LayDanhMucSanPham();
+		List<NhaXuatBan> listNhaXuatBans = danhMucSanPhamService.LayNhaXuatBan();
 	modelMap.addAttribute("listSanPham", listSanPhams);
 	modelMap.addAttribute("DanhMuc", listDanhMucSanPhams);
+	modelMap.addAttribute("NhaXuatBan", listNhaXuatBans);
 	if (null != httpSession.getAttribute("giohang")) {
 		List<GioHang> gioHangs = (List<GioHang>) httpSession.getAttribute("giohang");
 		  modelMap.addAttribute("soluongsanphamgiohang",gioHangs.size());

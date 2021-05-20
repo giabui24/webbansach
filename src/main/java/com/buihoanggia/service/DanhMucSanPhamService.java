@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.buihoanggia.dao.DanhMucSanPhamDao;
 import com.buihoanggia.entity.DanhMucSanPham;
+import com.buihoanggia.entity.NhaXuatBan;
 import com.buihoanggia.entity.SanPham;
 
 @Service
@@ -16,4 +17,8 @@ public class DanhMucSanPhamService {
 	public List<DanhMucSanPham> LayDanhMucSanPham() {
 		return danhMucSanPhamDao.LayDanhMucSanPham();
 	}
+	public List<NhaXuatBan> LayNhaXuatBan() {
+		return danhMucSanPhamDao.LayNhaXuatBan();
+	}
+	
 }
