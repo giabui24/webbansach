@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -17,7 +18,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.buihoanggia.entity.GioHang;
+import com.buihoanggia.entity.SanPham;
 import com.buihoanggia.service.NhanVienService;
+import com.buihoanggia.service.SanPhamService;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Controller
 @RequestMapping("api/")
@@ -27,7 +32,8 @@ public class ApiController {
 	@Autowired 
 	NhanVienService nhanvienservice;	
 	
-	
+	@Autowired
+	SanPhamService sanphamservice;
 	
 	@ResponseBody
 	@PostMapping("KiemTraDangNhap")
@@ -58,6 +64,15 @@ public class ApiController {
 			listgioHangs.remove(vitri);
 		}
 		
+	}
+	@GetMapping(path="LaySanPhamLimit",produces = "application/json;charset=UTF-8")
+	@ResponseBody
+	public String LaySanPhamLimit(int spbatdau) throws JsonProcessingException {
+		List<SanPham> sanphams = sanphamservice.LayDanhSachSanPhamLimit(spbatdau);
+		ObjectMapper map = new ObjectMapper();
+		String listsanphams = map.writeValueAsString(sanphams);
+		System.out.println(listsanphams);
+		return listsanphams;
 	}
 	
 	@GetMapping("ThemGioHang")
@@ -121,6 +136,7 @@ private int KiemTraSanPham(List<GioHang> listgioHangs,int masanpham,HttpSession 
 	return -1;
 	
 }
+
 /*
  * @GetMapping("LaySoLuongGioHang")
  * 
@@ -129,4 +145,5 @@ private int KiemTraSanPham(List<GioHang> listgioHangs,int masanpham,HttpSession 
  * (List<GioHang>) httpSession.getAttribute("giohang"); return
  * gioHangs.size()+""; } return ""; }
  */
+
 }

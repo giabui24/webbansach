@@ -29,5 +29,10 @@ SanPhamDao sanPhamDao;
 		// TODO Auto-generated method stub
 		return sanPhamDao.LayDanhSachSanPhamTheoMaDanhMuc(madanhmuc);
 	}
+	@Override
+	public List<SanPham> LayAllSanPham() {
+		// TODO Auto-generated method stub
+		return sanPhamDao.LayAllSanPham();
+	}
 
 }

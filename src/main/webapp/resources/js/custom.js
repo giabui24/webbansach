@@ -143,3 +143,16 @@
     })
 
 	});
+	$("body").on("click",".paging-item",function(){
+		var sotrang = $(this).text();
+		var spbatdau = parseInt(sotrang-1)*7;
+		$.ajax({
+			url: "/minishop/api/LaySanPhamLimit",
+		type: "GET",
+		data: {
+			spbatdau:spbatdau,
+			},
+			success: function(data) {
+		}
+		})
+	})
