@@ -65,15 +65,16 @@ public class ApiController {
 		}
 		
 	}
-	@GetMapping(path="LaySanPhamLimit",produces = "application/json;charset=UTF-8")
-	@ResponseBody
-	public String LaySanPhamLimit(int spbatdau) throws JsonProcessingException {
-		List<SanPham> sanphams = sanphamservice.LayDanhSachSanPhamLimit(spbatdau);
-		ObjectMapper map = new ObjectMapper();
-		String listsanphams = map.writeValueAsString(sanphams);
-		System.out.println(listsanphams);
-		return listsanphams;
-	}
+	/*
+	 * @GetMapping(path="LaySanPhamLimit",produces =
+	 * "application/json;charset=UTF-8")
+	 * 
+	 * @ResponseBody public String LaySanPhamLimit(int spbatdau) throws
+	 * JsonProcessingException { List<SanPham> sanphams =
+	 * sanphamservice.LayDanhSachSanPhamLimit(spbatdau); ObjectMapper map = new
+	 * ObjectMapper(); String listsanphams = map.writeValueAsString(sanphams);
+	 * System.out.println(listsanphams); return listsanphams; }
+	 */
 	
 	@GetMapping("ThemGioHang")
 	@ResponseBody

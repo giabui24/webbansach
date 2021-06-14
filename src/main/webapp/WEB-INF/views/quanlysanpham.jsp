@@ -76,7 +76,7 @@
                   <th>Ảnh bìa</th>
                   <th>Số lượng </th>
                   <th>Giá gốc</th>
-                  <th>Giá gốc</th>
+                  <th>Giá khuyến mãi</th>
                   <th>Thao tác</th>
                 </tr>
                 </thead>
@@ -85,19 +85,19 @@
                 <c:forEach var="sanpham" items="${sanpham}">
                  <c:forEach var="chitietsanpham" items="${sanpham.getDanhsachchiTietSanPham()}">
                 <tr>
-                  <td>${sanpham.getMasanpham() }</td>
+                  <td class="td-masanpham">${sanpham.getMasanpham() }</td>
                   <td>${sanpham.getTensanpham() }</td>
                   <td><img src='<c:url value="${sanpham.getHinhsanpham()}"/>' style="width: 80px" height="100px"></td>
                   <td>${chitietsanpham.getSoluong() }</td>
 
                   <td>${sanpham.getGiatien()}</td>
-                  <td>${sanpham.getGiatien()}</td>
+                  <td>${sanpham.getGiatien() - (chitietsanpham.getKhuyenmai().getGiagiam())}</td>
                 
              
                   <td>
                     <div class="row justify-content-center">
                       <a href="">
-                        <button type="button" class="btn btn-block btn-outline-danger">
+                        <button type="button" class="xoa-sanpham btn btn-block btn-outline-danger">
                           <i class="fa fa-trash-alt"></i>
                         </button>
                       </a>
@@ -120,7 +120,7 @@
                   <th>Ảnh bìa</th>
                   <th>Số lượng nhập</th>
                   <th>Giá gốc</th>
-                  <th>Giá gốc</th>
+                  <th>Giá khuyến mãi</th>
                   <th>Thao tác</th>
                 </tr>
                 </tfoot>
@@ -151,8 +151,6 @@
 <!-- Bootstrap 4 -->
 <script src='<c:url value="/resources/plugins/bootstrap/js/bootstrap.bundle.min.js"/>'></script>
 <!-- DataTables -->
-  <script  src='<c:url value="/resources/plugins/jqvmap/jqvmap.min.js"/>'></script>
-  <script  src='<c:url value="/resources/plugins/jqvmap/maps/jquery.vmap.usa.js"/>'></script>
 <script src='<c:url value="/resources/plugins/datatables/jquery.dataTables.js"/>'></script>
 <script src='<c:url value="/resources/plugins/datatables-bs4/js/dataTables.bootstrap4.js"/>'></script>
 <!-- AdminLTE App -->

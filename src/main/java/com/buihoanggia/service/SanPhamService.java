@@ -34,5 +34,10 @@ SanPhamDao sanPhamDao;
 		// TODO Auto-generated method stub
 		return sanPhamDao.LayAllSanPham();
 	}
+	@Override
+	public boolean XoaSanPham(int masanpham) {
+		// TODO Auto-generated method stub
+		return sanPhamDao.XoaSanPham(masanpham);
+	}
 
 }

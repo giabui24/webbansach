@@ -143,7 +143,7 @@
     })
 
 	});
-	$("body").on("click",".paging-item",function(){
+	/*$("body").on("click",".paging-item",function(){
 		var sotrang = $(this).text();
 		var spbatdau = parseInt(sotrang-1)*7;
 		$.ajax({
@@ -155,4 +155,21 @@
 			success: function(data) {
 		}
 		})
-	})
+	})*/
+		$(".xoa-sanpham").click(function() {
+		var masanpham =	$(this).closest("tr").find(".td-masanpham").text();	
+		var This = $(this)
+	$(this).closest("tr").hide();
+	$.ajax({
+			url: "/minishop/quanlysanpham/XoaSanPham",
+		type: "GET",
+		data: {
+			masanpham:masanpham,
+			},
+			success: function(value) {
+				This.closest("tr").remove();
+		}
+		})
+			
+			})
+	

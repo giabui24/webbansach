@@ -13,20 +13,31 @@ public class ChiTietSanPham {
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
 int machitietsanpham;
-@OneToOne(cascade = CascadeType.ALL)
+@OneToOne()
 @JoinColumn(name = "masanpham")
 SanPham sanPham;
-@OneToOne(cascade = CascadeType.ALL)
+@OneToOne()
 @JoinColumn(name = "matacgia")
 TacGia tacGia;
-@OneToOne(cascade = CascadeType.ALL)
+@OneToOne()
 @JoinColumn(name = "manhaxuatban")
 NhaXuatBan nhaXuatBan;
+@OneToOne()
+@JoinColumn(name = "makhuyenmai")
+KhuyenMai khuyenmai;
+
 int soluong;
 int ngaynhap;
 public ChiTietSanPham() {}
 public int getMachitietsanpham() {
 	return machitietsanpham;
+}
+
+public KhuyenMai getKhuyenmai() {
+	return khuyenmai;
+}
+public void setKhuyenmai(KhuyenMai khuyenmai) {
+	this.khuyenmai = khuyenmai;
 }
 public void setMachitietsanpham(int machitietsanpham) {
 	this.machitietsanpham = machitietsanpham;

@@ -67,19 +67,21 @@
         <div class="furniture--4 furniture--4v2 border--round arrows_style owl-carousel owl-theme row mt--50">
             <!-- Start Single Product -->
             <c:forEach var="sanpham" items="${listSanPham}">
+                <c:forEach var="chitietsanpham" items="${sanpham.getDanhsachchiTietSanPham()}">
+            
             <div class="product product__style--3">
                 <div class="col-lg-3 col-md-4 col-sm-6 col-12">
                     <div class="product__thumb">
                         <a class="first__img" href='<c:url value="/chitiet/${sanpham.getMasanpham()}"/>'><img src= '<c:url value="${sanpham.getHinhsanpham()}"/>'
                                                                               alt="product image"></a>
                         <div class="hot__box">
-                            <span class="hot-label">22%</span>
+                            <span class="hot-label">${Math.round(((chitietsanpham.getKhuyenmai().getGiagiam())/sanpham.getGiatien())*100) }%</span>
                         </div>
                     </div>
                     <div class="product__content content--center">
                         <h4><a href='<c:url value="/chitiet/${sanpham.getMasanpham()}"/>'>${sanpham.getTensanpham()}</a></h4>
                         <ul class="prize d-flex">
-                            <li>50.000đ</li>
+                            <li>${sanpham.getGiatien() - (chitietsanpham.getKhuyenmai().getGiagiam())}</li>
                         </ul>
                         <ul class="prize d-flex">
                             <li class="old_prize">${sanpham.getGiatien()}đ</li>
@@ -108,6 +110,7 @@
                 </div>
                 <!-- Start Single Product -->
             </div>
+            </c:forEach>
             </c:forEach>
     </div>
 </section>
@@ -227,6 +230,7 @@
              <div class="row single__tab tab-pane fade show active" id="nav-all" role="tabpanel">
               <div class="product__indicator--4 furniture--4v2 arrows_style owl-carousel owl-theme">
             <c:forEach var="sanpham" items="${listSanPham}">
+             <c:forEach var="chitietsanpham" items="${sanpham.getDanhsachchiTietSanPham()}">
             
              <div class="single__product">
                         <!-- Start Single Product -->
@@ -237,13 +241,13 @@
                                     <a class="first__img" href='<c:url value="/chitiet/${sanpham.getMasanpham()}"/>'><img src='<c:url value="${sanpham.getHinhsanpham()}"/>'
                                                                                           alt="product image"></a>
                                     <div class="hot__box color--2">
-                                        <span class="hot-label">10%</span>
+                                        <span class="hot-label">${Math.round(((chitietsanpham.getKhuyenmai().getGiagiam())/sanpham.getGiatien())*100) }%</span>
                                     </div>
                                 </div>
                                 <div class="product__content content--center">
                                     <h4><a href='<c:url value="/chitiet/${sanpham.getMasanpham()}"/>'>${sanpham.getTensanpham()}</a></h4>
                                     <ul class="prize d-flex">
-                                        <li>43.000đ</li>
+                                        <li>${sanpham.getGiatien() - (chitietsanpham.getKhuyenmai().getGiagiam())}</li>
                                     </ul>
                                     <ul class="prize d-flex">
                                         <li class="old_prize">${sanpham.getGiatien()}đ</li>
@@ -275,7 +279,7 @@
                             </div>
                             </div>
                             
-                         
+               </c:forEach>          
             </c:forEach>
                     </div>
                     </div>
@@ -289,6 +293,7 @@
             <div class="row single__tab tab-pane fade" id="nav-biographic" role="tabpanel">
                 <div class="product__indicator--4 furniture--4v2 arrows_style owl-carousel owl-theme">
                 <c:forEach var="sanpham" items="${listSanPham}">
+                 <c:forEach var="chitietsanpham" items="${sanpham.getDanhsachchiTietSanPham()}">
                 <div class="single__product">
                         <!-- Start Single Product -->
                         <div class="product product__style--3">
@@ -297,13 +302,13 @@
                                     <a class="first__img" href='<c:url value="/chitiet/${sanpham.getMasanpham()}"/>'><img src='<c:url value="${sanpham.getHinhsanpham()}"/>'
                                                                                           alt="product image"></a>
                                     <div class="hot__box">
-                                        <span class="hot-label">10%</span>
+                                        <span class="hot-label">${Math.round(((chitietsanpham.getKhuyenmai().getGiagiam())/sanpham.getGiatien())*100) }%</span>
                                     </div>
                                 </div>
                                 <div class="product__content content--center">
                                     <h4><a href='<c:url value="/chitiet/${sanpham.getMasanpham()}"/>'>${sanpham.getTensanpham()}</a></h4>
                                     <ul class="prize d-flex">
-                                        <li>34.000đ</li>
+                                        <li>${sanpham.getGiatien() - (chitietsanpham.getKhuyenmai().getGiagiam())}</li>
                                     </ul>
                                     <ul class="prize d-flex">
                                         <li class="old_prize">${sanpham.getGiatien()}đ</li>
@@ -333,7 +338,7 @@
                             </div>
                             </div>
                             </div>
-                            
+                  </c:forEach>          
                 </c:forEach>
                 </div>
                 </div>
@@ -348,6 +353,7 @@
             <div class="row single__tab tab-pane fade" id="nav-adventure" role="tabpanel">
                 <div class="product__indicator--4 furniture--4v2 arrows_style owl-carousel owl-theme">
                 <c:forEach var="sanpham" items="${listSanPham}"> 
+                 <c:forEach var="chitietsanpham" items="${sanpham.getDanhsachchiTietSanPham()}">
                 <div class="single__product">
                         <!-- Start Single Product -->
                         <div class="product product__style--3">
@@ -356,13 +362,13 @@
                                     <a class='<c:url value="/chitiet/${sanpham.getMasanpham()}"/>' href="single-product.html"><img src='<c:url value="${sanpham.getHinhsanpham()}"/>'
                                                                                           alt="product image"></a>
                                     <div class="hot__box color--2">
-                                        <span class="hot-label">15%</span>
+                                        <span class="hot-label">${Math.round(((chitietsanpham.getKhuyenmai().getGiagiam())/sanpham.getGiatien())*100) }%</span>
                                     </div>
                                 </div>
                                 <div class="product__content content--center">
                                     <h4><a href='<c:url value="/chitiet/${sanpham.getMasanpham()}"/>'>${sanpham.getTensanpham()}</a></h4>
                                     <ul class="prize d-flex">
-                                        <li>36.000đ</li>
+                                        <li>${sanpham.getGiatien() - (chitietsanpham.getKhuyenmai().getGiagiam())}</li>
                                     </ul>
                                     <ul class="prize d-flex">
                                         <li class="old_prize">${sanpham.getGiatien()}đ</li>
@@ -394,7 +400,7 @@
                         </div>
                         </div>
                         
-                        
+                        </c:forEach>
                         </c:forEach>
                         </div>
                         </div>
@@ -406,6 +412,7 @@
             <div class="row single__tab tab-pane fade" id="nav-children" role="tabpanel">
                 <div class="product__indicator--4 furniture--4v2 arrows_style owl-carousel owl-theme">
                 <c:forEach var="sanpham" items="${listSanPham}">
+                 <c:forEach var="chitietsanpham" items="${sanpham.getDanhsachchiTietSanPham()}">
                 <div class="single__product">
                         <!-- Start Single Product -->
                         <div class="product product__style--3">
@@ -414,13 +421,13 @@
                                     <a class="first__img" href='<c:url value="/chitiet/${sanpham.getMasanpham()}"/>'><img src='<c:url value="${sanpham.getHinhsanpham()}"/>'
                                                                                           alt="product image"></a>
                                     <div class="hot__box">
-                                        <span class="hot-label">10%</span>
+                                        <span class="hot-label">${Math.round(((chitietsanpham.getKhuyenmai().getGiagiam())/sanpham.getGiatien())*100) }%</span>
                                     </div>
                                 </div>
                                 <div class="product__content content--center">
                                     <h4><a href='<c:url value="/chitiet/${sanpham.getMasanpham()}"/>'>${sanpham.getTensanpham()}</a></h4>
                                     <ul class="prize d-flex">
-                                        <li>34.000đ</li>
+                                        <li>${sanpham.getGiatien() - (chitietsanpham.getKhuyenmai().getGiagiam())}</li>
                                     </ul>
                                     <ul class="prize d-flex">
                                         <li class="old_prize">${sanpham.getGiatien()}đ</li>
@@ -451,7 +458,7 @@
                             <!-- Start Single Product -->
                         </div>
                         </div>
-                        
+                   </c:forEach>     
                 </c:forEach>
                 </div>
                 </div>
@@ -461,7 +468,8 @@
             <!--end of children  -->
             <div class="row single__tab tab-pane fade" id="nav-cook" role="tabpanel">
                 <div class="product__indicator--4 furniture--4v2 arrows_style owl-carousel owl-theme">
-                <c:forEach var="sanpham" items="${listSanPham}"> 
+                <c:forEach var="sanpham" items="${listSanPham}">
+                 <c:forEach var="chitietsanpham" items="${sanpham.getDanhsachchiTietSanPham()}"> 
                 <div class="single__product">
                         <!-- Start Single Product -->
                         <div class="product product__style--3">
@@ -476,7 +484,7 @@
                                 <div class="product__content content--center">
                                     <h4><a href='<c:url value="/chitiet/${sanpham.getMasanpham()}"/>'>${sanpham.getTensanpham()}</a></h4>
                                     <ul class="prize d-flex">
-                                        <li>34.000đ</li>
+                                        <li>${sanpham.getGiatien() - (chitietsanpham.getKhuyenmai().getGiagiam())}</li>
                                     </ul>
                                     <ul class="prize d-flex">
                                         <li class="old_prize">${sanpham.getGiatien()}đ</li>
@@ -509,7 +517,7 @@
                         <!-- Start Single Product -->
                         <!-- Start Single Product -->
                         </div>
-                        
+                        </c:forEach>
                         </c:forEach>
                         </div>
                         

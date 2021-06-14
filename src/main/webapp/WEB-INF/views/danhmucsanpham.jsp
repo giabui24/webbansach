@@ -147,18 +147,19 @@
                                 <!-- Start Single Product -->
                             </div>
                             <ul class="wn__pagination">
-                                   <li><a href="#"><i class="zmdi zmdi-chevron-left"></i></a></li>
+                                    <li><a href='<c:url value="/danhmucsanpham/0/${pagenumber-1}"/>'><i class="zmdi zmdi-chevron-left"></i></a></li>
                                  <c:forEach var="i" begin ="1" end="${tongsopage}"> 
                                  <c:choose>
                             <c:when test="${i==1 }">
-                                <li class="paging-item active"><a href="#">${i}</a></li>
+                                <li class="paging-item active"><a href='<c:url value="/danhmucsanpham/0/${i}"/>'>${i}</a></li>
                                 </c:when>
                                      <c:otherwise >
-                                <li class="paging-item"><a href="#">${i}</a></li>
+                                <li class="paging-item "><a href='<c:url value="/danhmucsanpham/0/${i}"/>'>${i}</a></li>
                                 </c:otherwise>
                                 </c:choose>
                                 </c:forEach>
-                                <li><a href="#"><i class="zmdi zmdi-chevron-right"></i></a></li>
+                                <li><a href='<c:url value="/danhmucsanpham/0/${pagenumber+1}"/>'><i class="zmdi zmdi-chevron-right"></i></a></li>
+                               
                             </ul>
                         </div>
                         <div class="shop-grid tab-pane fade" id="nav-list" role="tabpanel">
@@ -192,19 +193,18 @@
                             </div>
                             <ul class="wn__pagination">
                            
-                                <li><a href="#"><i class="zmdi zmdi-chevron-left"></i></a></li>
-                                 <c:forEach var="i"  begin ="1" end="${tongsopage}"> 
+                                  <li><a href='<c:url value="/danhmucsanpham/0/${pagenumber-1}"/>'><i class="zmdi zmdi-chevron-left"></i></a></li>
+                                 <c:forEach var="i" begin ="1" end="${tongsopage}"> 
                                  <c:choose>
                             <c:when test="${i==1 }">
-                                <li class="paging-item active" ><a href="#">${i}</a></li>
+                                <li class="paging-item active"><a href='<c:url value="/danhmucsanpham/0/${i}"/>'>${i}</a></li>
                                 </c:when>
                                      <c:otherwise >
-                                <li class="paging-item"><a href="#">${i}</a></li>
+                                <li class="paging-item "><a href='<c:url value="/danhmucsanpham/0/${i}"/>'>${i}</a></li>
                                 </c:otherwise>
                                 </c:choose>
                                 </c:forEach>
-                                <li><a href="#"><i class="zmdi zmdi-chevron-right"></i></a></li>
-                                
+                                <li><a href='<c:url value="/danhmucsanpham/0/${pagenumber+1}"/>'><i class="zmdi zmdi-chevron-right"></i></a></li>
                             </ul>
                         </div>
                     </div>

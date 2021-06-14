@@ -29,11 +29,8 @@ public class SanPham {
 	@OneToMany(fetch=FetchType.EAGER,cascade = CascadeType.ALL)
 	@JoinColumn(name = "masanpham")
 	Set<ChiTietSanPham> danhsachchiTietSanPham;
-	@ManyToMany(cascade = CascadeType.ALL)
-	@JoinTable(name = "CHITIETKHUYENMAI", joinColumns = {
-			@JoinColumn(name = "masanpham", referencedColumnName = "masanpham") }, inverseJoinColumns = {
-					@JoinColumn(name = "makhuyenmai", referencedColumnName = "makhuyenmai") })
-	Set<KhuyenMai> danhsachKhuyenMai;
+	
+	
 	public SanPham() {}
 	public Set<ChiTietSanPham> getDanhsachchiTietSanPham() {
 		return danhsachchiTietSanPham;
@@ -43,13 +40,7 @@ public class SanPham {
 		this.danhsachchiTietSanPham = danhsachchiTietSanPham;
 	}
 
-	public Set<KhuyenMai> getDanhsachKhuyenMai() {
-		return danhsachKhuyenMai;
-	}
 
-	public void setDanhsachKhuyenMai(Set<KhuyenMai> danhsachKhuyenMai) {
-		this.danhsachKhuyenMai = danhsachKhuyenMai;
-	}
 
 	public int getMasanpham() {
 		return masanpham;
@@ -98,5 +89,6 @@ public class SanPham {
 	public void setHinhsanpham(String hinhsanpham) {
 		this.hinhsanpham = hinhsanpham;
 	}
+	
 
 }

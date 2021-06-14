@@ -2,6 +2,7 @@ package com.buihoanggia.dao;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import javax.transaction.Transactional;
 
@@ -13,7 +14,7 @@ import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Repository;
 
 import com.buihoanggia.daoimp.SanPhamImp;
-
+import com.buihoanggia.entity.ChiTietSanPham;
 import com.buihoanggia.entity.SanPham;
 
 @Repository
@@ -66,6 +67,22 @@ public class SanPhamDao implements SanPhamImp {
 		listSanPhams = (List<SanPham>) session.createQuery(query).getResultList();
 
 		return listSanPhams;
+	}
+
+	@Override
+	@Transactional
+	public boolean XoaSanPham(int masanpham) {
+		// TODO Auto-generated method stub
+		 Session session = sessionFactory.getCurrentSession();
+		 SanPham sanPham = session.get(SanPham.class, masanpham);
+		 Set<ChiTietSanPham> chiTietSanPhams = sanPham.getDanhsachchiTietSanPham();
+		 for(ChiTietSanPham chiTietSanPham:chiTietSanPhams) {
+			 session.createQuery("delete CHITIETHOADON WHERE machitietsanpham="+chiTietSanPham.getMachitietsanpham()).executeUpdate();
+		 }
+		 session.createQuery("delete CHITIETSANPHAM WHERE masanpham="+masanpham).executeUpdate();
+		 session.createQuery("delete SANPHAM WHERE masanpham="+masanpham).executeUpdate();
+		 
+		return false;
 	}
 
 }

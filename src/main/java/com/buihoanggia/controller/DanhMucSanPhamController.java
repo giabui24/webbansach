@@ -28,23 +28,27 @@ public class DanhMucSanPhamController {
 public String Default(ModelMap modelMap,@PathVariable int id) {
 		List<DanhMucSanPham> listDanhMucSanPhams = danhMucSanPhamService.LayDanhMucSanPham();
 		List<SanPham> listSanPhams = new ArrayList<SanPham>();
+		
 	
 		listSanPhams = sanPhamService.LayDanhSachSanPhamTheoMaDanhMuc(id);
 		List<NhaXuatBan> listNhaXuatBans = danhMucSanPhamService.LayNhaXuatBan();
 		modelMap.addAttribute("DanhMuc", listDanhMucSanPhams);
 		modelMap.addAttribute("SanPham", listSanPhams);
 		modelMap.addAttribute("NhaXuatBan", listNhaXuatBans);
+		modelMap.addAttribute("id",id);
 		return "/danhmucsanpham";
 	
 }
-	@GetMapping("/all")
-	public String DanhMucSanPham(ModelMap modelMap) {
+	@GetMapping("/0/{pagenumber}")
+	public String DanhMucSanPham(ModelMap modelMap,@PathVariable("pagenumber") int pagenumber) {
 		List<SanPham> listSanPhams = new ArrayList<SanPham>();
-		List<SanPham> listlimit = sanPhamService.LayDanhSachSanPhamLimit(0);
+		int spbatdau = (pagenumber-1)*7;
+		List<SanPham> listlimit = sanPhamService.LayDanhSachSanPhamLimit(spbatdau);
 		listSanPhams = sanPhamService.LayAllSanPham();
 		double tongsopage = Math.ceil((double)listSanPhams.size()/7) ;
 		modelMap.addAttribute("SanPham", listlimit);
 		modelMap.addAttribute("tongsopage",tongsopage);
+		modelMap.addAttribute("pagenumber",pagenumber);
 		return "/danhmucsanpham";
 		
 	}
