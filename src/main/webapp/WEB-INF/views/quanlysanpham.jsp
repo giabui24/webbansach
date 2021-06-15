@@ -58,7 +58,7 @@
                     Bảng quản lý các sản phẩm</a>
                 </div>
                 <div class=" col-6 text-right">
-                  <a href="">
+                  <a href='<c:url value="/quanlysanpham/ThemSanPham"/>' >
                     <button type="button" class="btn btn-primary text-right">
                       <i class="fa fa-plus-circle"></i> Thêm mới sản phẩm
                     </button>

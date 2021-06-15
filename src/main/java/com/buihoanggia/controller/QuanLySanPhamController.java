@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.buihoanggia.entity.DanhMucSanPham;
 import com.buihoanggia.entity.SanPham;
+import com.buihoanggia.service.DanhMucSanPhamService;
 import com.buihoanggia.service.SanPhamService;
 
 @Controller
@@ -18,6 +20,8 @@ import com.buihoanggia.service.SanPhamService;
 public class QuanLySanPhamController {
 	@Autowired
 	SanPhamService SanPhamService;
+	@Autowired
+	DanhMucSanPhamService danhMucSanPhamService;
 @GetMapping
 public String Default(ModelMap modelMap) {
 
@@ -26,10 +30,17 @@ public String Default(ModelMap modelMap) {
 	modelMap.addAttribute("sanpham", allsanPhams);
 	return "/quanlysanpham";
 }
+@GetMapping("ThemSanPham")
+public String ThemSanPham(ModelMap modelmap){
+	List<DanhMucSanPham> listDanhMucSanPhams = danhMucSanPhamService.LayDanhMucSanPham();
+	modelmap.addAttribute("danhmuc",listDanhMucSanPhams);
+	return"/themsanpham";
+}
 @GetMapping("XoaSanPham")
 @ResponseBody
 public String XoaSanPhamTheoMaSanPham(@RequestParam int masanpham) {
 	SanPhamService.XoaSanPham(masanpham);
 	return "true";
 }
+
 }

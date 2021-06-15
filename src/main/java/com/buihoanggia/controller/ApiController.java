@@ -1,8 +1,12 @@
 package com.buihoanggia.controller;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +20,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.buihoanggia.entity.GioHang;
 import com.buihoanggia.entity.SanPham;
@@ -146,5 +152,24 @@ private int KiemTraSanPham(List<GioHang> listgioHangs,int masanpham,HttpSession 
  * (List<GioHang>) httpSession.getAttribute("giohang"); return
  * gioHangs.size()+""; } return ""; }
  */
-
+@Autowired
+ServletContext context;
+@PostMapping("UploadFile")
+@ResponseBody
+public String UploadFile(MultipartHttpServletRequest request) {
+	String path_save_file =context.getRealPath("/resources/images/");
+	Iterator<String> listnames = request.getFileNames();
+	MultipartFile mpf = request.getFile(listnames.next());
+	File file_save = new File(path_save_file+mpf.getOriginalFilename());
+	try {
+		mpf.transferTo(file_save);
+	} catch (IllegalStateException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	} catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	return "true";
+	}
 }
