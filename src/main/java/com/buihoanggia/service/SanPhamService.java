@@ -39,5 +39,10 @@ SanPhamDao sanPhamDao;
 		// TODO Auto-generated method stub
 		return sanPhamDao.XoaSanPham(masanpham);
 	}
+	@Override
+	public boolean ThemSanPham(SanPham sanpham) {
+		// TODO Auto-generated method stub
+		return sanPhamDao.ThemSanPham(sanpham);
+	}
 
 }

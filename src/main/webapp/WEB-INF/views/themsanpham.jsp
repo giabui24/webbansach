@@ -55,7 +55,7 @@
                       <h3 class="card-title">Thông tin sản phẩm</h3>
                     </div>
                     <div class="card-body">
-                      <form role="form">
+                      <form id="form-sanpham" role="form">
                         <!-- Date dd/mm/yyyy -->
                        
                         <div class="form-group">
@@ -84,6 +84,64 @@
                           </div>
                           <!-- /.input group -->
                         </div>
+                        <div id="chitietsanpham">
+                          <div class="form-group">
+                          <label>Tác Giả</label>
+
+                          <div class="input-group">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text"><i class="far fa-id-card"></i></span>
+                            </div>
+                            <select name="tacgia" type="text" class="form-control">
+                            <c:forEach var="tacgia" items="${tacgia}" >
+                            <option value="${tacgia.getMatacgia() }">${tacgia.getTentacgia()}</option>
+                            </c:forEach>
+                            </select>
+                          </div>
+                          <!-- /.input group -->
+                        </div>
+                          <div class="form-group">
+                          <label>Nhà Xuất Bản</label>
+
+                          <div class="input-group">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text"><i class="far fa-id-card"></i></span>
+                            </div>
+                            <select name="nhaxuatban" type="text" class="form-control">
+                            <c:forEach var="nhaxuatban" items="${nhaxuatban}" >
+                            <option value="${nhaxuatban.getManhaxuatban() }">${nhaxuatban.getTennhaxuatban()}</option>
+                            </c:forEach>
+                            </select>
+                          </div>
+                          <!-- /.input group -->
+                        </div>
+                         <div class="form-group">
+                          <label>Khuyến Mãi</label>
+                          <div class="input-group">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text"><i class="far fa-id-card"></i></span>
+                            </div>
+                            <select name="khuyenmai" type="text" class="form-control">
+                            <c:forEach var="khuyenmai" items="${khuyenmai}" >
+                            <option value="${khuyenmai.getMakhuyenmai() }">${khuyenmai.getTenkhuyenmai()}</option>
+                            </c:forEach>
+                            </select>
+                          </div>
+                          <!-- /.input group -->
+                        </div>
+                          <div class="form-group">
+                          <label>Số Lượng</label>
+
+                          <div class="input-group">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text"><i class="far fa-id-card"></i></span>
+                            </div>
+                            <input  name="soluong" type="number" class="form-control">
+                          </div>
+                          <!-- /.input group -->
+                        </div>
+                       
+                       </div>
                         <!-- phone mask -->
                         <div class="form-group">
                           <label>Hình ảnh</label>
@@ -97,25 +155,13 @@
                           <!-- /.input group -->
                         </div>
                         <!-- phone mask -->
-                        <div class="form-group">
-                          <label>Số lượng</label>
-
-                          <div class="input-group">
-                            <div class="input-group-prepend">
-                              <span class="input-group-text"><i class="fa fa-th-list"></i></span>
-                            </div>
-                            <input type="text" class="form-control">
-                          </div>
-                          <!-- /.input group -->
-                        </div>
-                        <div class="form-group">
                           <label>Giá</label>
 
                           <div class="input-group">
                             <div class="input-group-prepend">
                               <span class="input-group-text"><i class="fa fa-money-check"></i></span>
                             </div>
-                            <input type="text" class="form-control">
+                            <input name="giatien" type="text" class="form-control">
                           </div>
                           <!-- /.input group -->
                         </div>
@@ -125,9 +171,11 @@
                           <label>Mô tả</label>
 
                           <div class="input-group">
+                           <div class="input-group-prepend">
                             <div class="mb-3">
-                                  <textarea class="textarea" placeholder="Place some text here"
+                                  <textarea name="mota" class="textarea" placeholder="Place some text here"
                                             style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid rgb(221, 221, 221); padding: 10px; display: none;"></textarea>
+                            </div>
                             </div>
                           </div>
                           <!-- /.input group -->
@@ -137,7 +185,7 @@
                         <div class="form-group">
                           <div class="input-group justify-content-center">
                             <a href="#">
-                              <button type="button" class="btn btn-success text-right">
+                              <button id="btnThemsanpham" type="button" class="btn btn-success text-right">
                                 <i class="fa fa-plus-circle"></i> Thêm
                               </button>
                             </a>
@@ -150,7 +198,9 @@
                           <!-- /.input group -->
                         </div>
                         <!-- /.form group -->
+                        
                       </form>
+                      
                     </div>
                     <!-- /.card-body -->
                   </div>

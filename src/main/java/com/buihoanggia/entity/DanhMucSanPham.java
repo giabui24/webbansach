@@ -17,7 +17,7 @@ public class DanhMucSanPham {
 	int madanhmuc;
 	String tendanhmuc;
 	String hinhdanhmuc;
-	@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+	@OneToMany(fetch = FetchType.EAGER)
 	@JoinColumn(name ="madanhmuc" )
 	Set<SanPham> danhsachsanpham;
 	

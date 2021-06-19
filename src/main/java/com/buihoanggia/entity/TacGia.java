@@ -11,6 +11,7 @@ public class TacGia {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	int matacgia;
 	String tentacgia;
+	public TacGia() {}
 	public int getMatacgia() {
 		return matacgia;
 	}

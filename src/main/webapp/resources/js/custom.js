@@ -156,7 +156,8 @@
 		}
 		})
 	})*/
-		$(".xoa-sanpham").click(function() {
+		$(".xoa-sanpham").click(function(event) {
+			event.preventDefault();
 		var masanpham =	$(this).closest("tr").find(".td-masanpham").text();	
 		var This = $(this)
 	$(this).closest("tr").hide();
@@ -168,13 +169,18 @@
 			},
 			success: function(value) {
 				This.closest("tr").remove();
+				alert("Xoa san pham thanh cong");
 		}
 		})
 			
 			});
 			var files =[];
+			var tenhinh="";
 		$("#hinhanh").change(function(event){
+			
+			
 			files = event.target.files;
+			tenhinh = files[0].name;
 			forms = new FormData();
 			forms.append("file",files[0]);
 			$.ajax({
@@ -191,6 +197,42 @@
 		}
 		})
 			
-		})	
+		});
+	$("#btnThemsanpham").click(function(event){
+		event.preventDefault();
+		var formdata = $("#form-sanpham").serializeArray();
+        json={};
+        arraychitiet=[];	
+		$.each(formdata,function(i,field){
+			
+			json[field.name] = field.value;
+			
+		});
+		$("#chitietsanpham").each(function(){
+			objectChitiet={};
+			tacgia =$(this).find('select[name="tacgia"]').val();
+			nhaxuatban =$(this).find('select[name="nhaxuatban"]').val();
+			khuyenmai =$(this).find('select[name="khuyenmai"]').val();
+			soluong =$(this).find('input[name="soluong"]').val();
+			objectChitiet["tacgia"]=tacgia;
+			objectChitiet["nhaxuatban"]=nhaxuatban;
+			objectChitiet["khuyenmai"]=khuyenmai;
+			objectChitiet["soluong"]=soluong;
+		arraychitiet.push(objectChitiet);
+		});
+		json["chitietsanpham"] = arraychitiet;
+		json["hinhsanpham"] = tenhinh;
+		console.log(json);		
+		$.ajax({
+			url: "/minishop/quanlysanpham/ThemSanPhamMoi",
+		type: "POST",
+		data: {
+			dataJson:JSON.stringify(json),
+			},
+			success: function(value) {
+				alert("Themsanphamthanhcong");
+		}
+		})
+	})		
 			
 	

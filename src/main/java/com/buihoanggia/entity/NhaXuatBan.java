@@ -11,6 +11,7 @@ public class NhaXuatBan {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	int manhaxuatban;
 	String tennhaxuatban;
+	public NhaXuatBan() {}
 	public int getManhaxuatban() {
 		return manhaxuatban;
 	}
