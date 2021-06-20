@@ -96,4 +96,13 @@ public class SanPhamDao implements SanPhamImp {
 		return false;
 	}
 
+	@Override
+	@Transactional
+	public boolean UpdateSanPham(SanPham sanpham) {
+		// TODO Auto-generated method stub
+		 Session session = sessionFactory.getCurrentSession();
+		session.update(sanpham);
+		return false;
+	}
+
 }

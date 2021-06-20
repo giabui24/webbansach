@@ -11,4 +11,5 @@ public interface SanPhamImp {
    List<SanPham> LayAllSanPham();
    boolean XoaSanPham(int masanpham);
    boolean ThemSanPham(SanPham sanpham);
+   boolean UpdateSanPham(SanPham sanpham);
 }

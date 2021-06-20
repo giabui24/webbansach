@@ -233,6 +233,48 @@
 				alert("Themsanphamthanhcong");
 		}
 		})
-	})		
+	})
+	
+	
+	$("#btncapnhatsanpham").click(function(event){
+		var masanpham = $("#masanpham").attr("data-value");
+		event.preventDefault();
+		var formdata = $("#form-sanpham").serializeArray();
+        json={};
+        arraychitiet=[];	
+		$.each(formdata,function(i,field){
+			
+			json[field.name] = field.value;
+			
+		});
+		$("#chitietsanpham").each(function(){
+			objectChitiet={};
+			tacgia =$(this).find('select[name="tacgia"]').val();
+			nhaxuatban =$(this).find('select[name="nhaxuatban"]').val();
+			khuyenmai =$(this).find('select[name="khuyenmai"]').val();
+			soluong =$(this).find('input[name="soluong"]').val();
+			objectChitiet["tacgia"]=tacgia;
+			objectChitiet["nhaxuatban"]=nhaxuatban;
+			objectChitiet["khuyenmai"]=khuyenmai;
+			objectChitiet["soluong"]=soluong;
+		arraychitiet.push(objectChitiet);
+		});
+		json["chitietsanpham"] = arraychitiet;
+		json["hinhsanpham"] = tenhinh;
+		json["masanpham"] = masanpham;
+		console.log(json);		
+		$.ajax({
+			url: "/minishop/quanlysanpham/UpdateSanPhamMoi",
+		type: "POST",
+		data: {
+			dataJson:JSON.stringify(json),
+			},
+			success: function(value) {
+				alert("Updatethanhconng");
+		}
+		})
+	});		
+			
+			
 			
 	

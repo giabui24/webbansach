@@ -101,7 +101,7 @@
                           <i class="fa fa-trash-alt"></i>
                         </button>
                       </a>
-                      <a  href=>
+                      <a  href='<c:url value="/quanlysanpham/UpdateSanPham/${sanpham.getMasanpham()}"/>'>
                         <button type="button" class="btn btn-block btn-outline-success ml-1">
                           <i class="fa fa-edit"></i>
                         </button>
