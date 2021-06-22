@@ -49,5 +49,10 @@ SanPhamDao sanPhamDao;
 		// TODO Auto-generated method stub
 		return sanPhamDao.UpdateSanPham(sanpham);
 	}
+	@Override
+	public List<SanPham> SearchSach(String tensanpham) {
+		// TODO Auto-generated method stub
+		return sanPhamDao.SearchSach(tensanpham);
+	}
 
 }

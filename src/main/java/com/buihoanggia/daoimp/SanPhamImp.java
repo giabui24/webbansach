@@ -12,4 +12,5 @@ public interface SanPhamImp {
    boolean XoaSanPham(int masanpham);
    boolean ThemSanPham(SanPham sanpham);
    boolean UpdateSanPham(SanPham sanpham);
+   List<SanPham> SearchSach(String tensanpham);
 }

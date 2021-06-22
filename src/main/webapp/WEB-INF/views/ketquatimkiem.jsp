@@ -103,8 +103,8 @@
                         <div class="shop-grid tab-pane fade show active" id="nav-grid" role="tabpanel">
                             <div class="row">
                                 <!-- Start Single Product -->
-                                <c:forEach var="sanpham" items="${SanPham}">
-                                   <c:forEach var="chitietsanpham" items="${sanpham.getDanhsachchiTietSanPham()}">
+                                <c:forEach var="sanpham" items="${listsearch}">
+                                 <c:forEach var="chitietsanpham" items="${sanpham.getDanhsachchiTietSanPham()}">
                                 <div class="product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12">
                                     <div class="product__thumb">
                                         <a class="first__img" href='<c:url value="/chitiet/${sanpham.getMasanpham()}"/>'><img
@@ -116,6 +116,7 @@
                                     </div>
                                     <div class="product__content content--center">
                                         <h4><a href='<c:url value="/chitiet/${sanpham.getMasanpham()}"/>'>${sanpham.getTensanpham()}</a></h4>
+                                        
                                         <ul class="prize d-flex">
                                             <li>${sanpham.getGiatien() - (chitietsanpham.getKhuyenmai().getGiagiam())}</li>
                                         </ul>
@@ -166,8 +167,8 @@
                         </div>
                         <div class="shop-grid tab-pane fade" id="nav-list" role="tabpanel">
                             <div class="list__view__wrapper">
-                              <c:forEach var="sanpham" items="${SanPham}">
-                                 <c:forEach var="chitietsanpham" items="${sanpham.getDanhsachchiTietSanPham()}">
+                              <c:forEach var="sanpham" items="${listsearch}">
+                               <c:forEach var="chitietsanpham" items="${sanpham.getDanhsachchiTietSanPham()}">
                                 <!-- Start Single Product -->
                                 <div class="list__view">
                                     <div class="thumb">

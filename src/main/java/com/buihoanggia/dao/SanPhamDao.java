@@ -105,4 +105,20 @@ public class SanPhamDao implements SanPhamImp {
 		return false;
 	}
 
+	@Override
+	@Transactional
+	public List<SanPham> SearchSach(String tensanpham) {
+		// TODO Auto-generated method stub
+		Session session = sessionFactory.getCurrentSession();
+		if (tensanpham == null) {
+			tensanpham="%";
+		}else {
+			tensanpham="'%"+tensanpham+"%'";
+		}
+		List<SanPham> listSanPhams = (List<SanPham>)session.createQuery("from SANPHAM WHERE tensanpham like" +tensanpham).setFirstResult(0).setMaxResults(3).getResultList();;
+		
+
+		return listSanPhams;
+	}
+
 }

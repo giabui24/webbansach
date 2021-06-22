@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -178,20 +177,22 @@
             </div>
             <!-- Mobile Menu -->
             <div class="box-search-content search_active block-bg close__top">
-        <form id="search_mini_form" class="minisearch" action="#">
+        <form id="search_mini_form" class="minisearch" action='<c:url value="/SearchPage"/>' method="POST" modelAttribute="sanpham">
             <div class="field__search">
-                <input type="text" placeholder="Nhập từ khóa...">
-                <div class="action">
-                    <a href="#"><i class="zmdi zmdi-search"></i></a>
-                </div>
+                <input id="ketquatimkiem" path="tensanpham" name="tensanpham" type="text" placeholder="Nhập từ khóa..."/>
             </div>
+              <div  class="field__search" id="searchresult"></div>
+            
         </form>
         <div class="close__wrap">
             <span>Đóng</span>
         </div>
+         
     </div>
+  
     <!-- End Search Popup -->
         </div>
+        
     </header>
 <script src='<c:url value="/resources/js/custom.js"/>'></script>
 </body>
