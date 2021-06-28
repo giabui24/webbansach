@@ -1,11 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+    <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>dangky</title>
+<style>
+		.error {color:red}
+	</style>
+
 </head>
 <body>
 <jsp:include page="header.jsp"></jsp:include>
@@ -41,13 +46,20 @@
                 <div class="col-lg-6 col-12">
                     <div class="my__account__wrapper">
                         <h3 class=" text-center">Mời bạn điền vào form đăng ký</h3>
-                        <form action="" method="post">
+                        <form:form action="KiemTraDangKy" method="post"  modelAttribute="crmUser">
                             <div class="account__form">
                                 <div class="welcome">
                                     <p class="text-center">Welcom to H&B Bookstore</p>
-                                    <p class="text-center"><a class="questionRegister" href='<c:url value="/dangnhap/"/>'>Đăng
+                                    <p class="text-center"><a class="questionRegister" href='<c:url value="/dangnhap"/>'>Đăng
                                         nhập? </a>Nếu đã có tài khoản</p>
                                 </div>
+                                <c:if test="${registrationError != null}">
+								
+										<div class="alert alert-danger col-xs-offset-1 col-xs-10">
+											${registrationError}
+										</div>
+		
+									</c:if>
                                 <!-- <div class="input__box">
                                     <label>Tên của bạn <span>*</span></label>
                                     <input name="email" type="email">
@@ -57,16 +69,34 @@
                                     <input type="password">
                                 </div> -->
                                 <div class="input__box">
-                                    <label>Địa chỉ Email<span>*</span></label>
-                                    <input type="password">
+                                    <label>Tên Tài Khoản<span>*</span></label>
+                                    <form:errors path="userName" cssClass="error" />
+                                    <form:input path="userName" placeholder="username (*)" class="form-control" />
                                 </div>
                                 <div class="input__box">
                                     <label>Mật khẩu<span>*</span></label>
-                                    <input type="password">
+                                    <form:errors path="password" cssClass="error" />
+                                    <form:password path="password" placeholder="password (*)" class="form-control" />
                                 </div>
                                 <div class="input__box">
                                     <label>Nhập lại mật khẩu<span>*</span></label>
-                                    <input type="password">
+                                    <form:errors path="matchingPassword" cssClass="error" />
+                                    <form:password path="matchingPassword" placeholder="confirm password (*)" class="form-control" />
+                                </div>
+                                <div class="input__box">
+                                    <label>Họ<span>*</span></label>
+                                  <form:errors path="firstName" cssClass="error" />
+                                   <form:input path="firstName" placeholder="first name (*)" class="form-control" />
+                                </div>
+                                <div class="input__box">
+                                    <label>Tên<span>*</span></label>
+                                    <form:errors path="lastName" cssClass="error" />
+							<form:input path="lastName" placeholder="last name (*)" class="form-control" />
+                                </div>
+                                <div class="input__box">
+                                    <label>Email<span>*</span></label>
+                                    <form:errors path="email" cssClass="error" />
+							<form:input path="email" placeholder="email (*)" class="form-control" />
                                 </div>
                                <!--  <label class="label-for-checkbox">
                                     <input id="rememberme" class="input-checkbox" name="rememberme" value="forever"
@@ -78,7 +108,7 @@
                                 </div>
 
                             </div>
-                        </form>
+                        </form:form>
                     </div>
                 </div>
             </div>

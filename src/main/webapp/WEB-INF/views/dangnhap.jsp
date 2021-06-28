@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
-
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -42,26 +42,31 @@
                 <div class="col-lg-6 col-12">
                     <div class="my__account__wrapper">
                         <h3 class="text-center">Mời bạn điền vào form đăng nhập</h3>
-                        <!-- <form action="" method="get"> -->
+                        <form:form action="KiemTraDangNhap" method="POST" modelAttribute="user">
                             <div class="account__form">
                                 <div class="welcome">
                                     <p class="text-center">Welcom to H&B Bookstore</p>
-                                    <p class="text-center"><a class="questionRegister" href='<c:url value="/dangky/"/>'>Đăng
+                                    <p class="text-center"><a class="questionRegister" href='<c:url value="/dangky"/>'>Đăng
                                         ký? </a>Nếu chưa là thành viên</p>
                                 </div>
                                 <div class="input__box">
                                     <label>Tên đăng nhập hoặc Email <span>*</span></label>
-                                    <input id="email" type="text" name="email">
+                                    <input id="email" type="text" name="username">
                                 </div>
                                 <div class="input__box">
                                     <label>Mật khẩu <span>*</span></label>
-                                    <input id="matkhau" type="text" name="matkhau">
+                                    <input id="matkhau" type="text" name="password">
                                 </div>
                                 <div class="form__btn text-center">
-                                    <button id="btnDangNhap">Đăng nhập</button>
+                                    <button type="submit" id="btnDangNhapa">Đăng nhập</button>
                                     </br>
-                                    <span id="ketqua">${kiemtra}</span>
-                                      
+                                    <c:if test="${param.error!= null }">
+                                    <span id="ketqua">Sai mật khẩu hoặc tên đăng nhập </span>
+                                      </c:if>
+                                        <c:if test="${param.logout != null }">
+                                    <span id="ketqua">Bạn đã đăng xuất </span>
+                                      </c:if>
+                                    
                                     
 
                                 </div>
@@ -76,7 +81,7 @@
 
 
                             </div>
-                        <!-- </form> -->
+                        </form:form>
                     </div>
                     <div class="text-center">
                         <p class="titleLogin">Hoặc đăng nhập bằng</p>

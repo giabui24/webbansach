@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -105,7 +106,7 @@
                                 <div class="content-inner">
                                     <div class="switcher-currency">
                                         <strong class="label switcher-label">
-                                            <span>${email}</span>
+                                            <span>${username}</span>
                                         </strong>
                                         <div class="switcher-options">
                                             <div class="switcher-currency-trigger">
@@ -117,8 +118,9 @@
                                                             class="fa fa-registered"></i> Đăng kí</a></div>
                                                     <div class="update"><a href="updateaccount.html"><i
                                                             class="fa fa-upload"></i> Cập nhật tài khoản</a></div>
-                                                    <div class="logout"><a href="#"><i class="fa fa-sign-out"></i> Đăng
-                                                        xuất</a></div>
+                                                     <form:form action="logout" method="POST">       
+                                                    <div class="logout"><i class="fa fa-sign-out"></i> <input type="submit" class="btn-link" value="Đăng Xuất" /></div>
+                                                        </form:form>
                                                 </div>
                                             </div>
                                         </div>

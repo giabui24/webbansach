@@ -5,26 +5,29 @@ import java.util.regex.Pattern;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttribute;
 
+import com.buihoanggia.entity.CrmUser;
 import com.buihoanggia.entity.NhanVien;
 import com.buihoanggia.service.NhanVienService;
 
 @Controller
-@RequestMapping("dangky/")
+@RequestMapping("dangky")
 public class DangKyController {
 	@Autowired 
 	NhanVienService nhanvienservice;	
 	@GetMapping
-	public String Default() {
+	public String Default(Model theModel) {
 
+		theModel.addAttribute("crmUser", new CrmUser());
 		return "/dangky";
 	}
-	@PostMapping
+	@PostMapping()
 	public String DangKy(@RequestParam String email,@RequestParam String matkhau,@RequestParam String nhaplaimatkhau) {
 		boolean ktmail = validate(email);
 		if(ktmail) {

@@ -32,7 +32,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Controller
 @RequestMapping("api/")
-@SessionAttributes({"email","giohang"})
+@SessionAttributes({"user","giohang"})
 
 public class ApiController {
 	@Autowired 

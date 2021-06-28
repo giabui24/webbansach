@@ -21,6 +21,7 @@ String diachigiaohang;
 boolean tinhtrang;
 String ngaylap;
 String hinhthucgiaohang;
+int    userid;
 @OneToMany(cascade = CascadeType.ALL)
 @JoinColumn(name="mahoadon") 
 Set<ChiTietHoaDon> danhsachChiTietHoaDons;
@@ -75,6 +76,14 @@ public String getNgaylap() {
 }
 public void setNgaylap(String ngaylap) {
 	this.ngaylap = ngaylap;
+}
+
+public int getUserid() {
+	return userid;
+}
+
+public void setUserid(int userid) {
+	this.userid = userid;
 }
 
 }
