@@ -1,6 +1,8 @@
 package com.buihoanggia.controller;
 
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -46,7 +48,7 @@ public class ThanhToanController {
 	@GetMapping("ThemHoaDon")
 	@ResponseBody
 	public String ThemHoaDon(@RequestParam String tenkhachhang, @RequestParam String sdt,
-			@RequestParam String diachigiaohang, @RequestParam String hinhthucgiaohang, HttpSession httpSession) {
+			@RequestParam String diachigiaohang, @RequestParam String hinhthucgiaohang,@RequestParam String username,@RequestParam double tongtien ,HttpSession httpSession) {
 		if (null != httpSession.getAttribute("giohang")) {
 			List<GioHang> gioHangs = (List<GioHang>) httpSession.getAttribute("giohang");
 
@@ -55,6 +57,12 @@ public class ThanhToanController {
 			hoaDon.setSdt(sdt);
 			hoaDon.setDiachigiaohang(diachigiaohang);
 			hoaDon.setHinhthucgiaohang(hinhthucgiaohang);
+			Date date = new Date();
+			SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+			hoaDon.setNgaylap(formatter.format(date).toString());
+			hoaDon.setUsername(username);
+			hoaDon.setTongtien(tongtien);
+			
 			int idHoaDon = hoaDonService.ThemHoaDon(hoaDon);
 			if (0<idHoaDon) {
 				Set<ChiTietHoaDon> listChiTietHoaDons = new HashSet<ChiTietHoaDon>();
@@ -66,6 +74,7 @@ public class ThanhToanController {
 					chiTietHoaDon.setChiTietHoaDonId(chiTietHoaDonId);
 					chiTietHoaDon.setGiatien(gioHang.getGiatien());
 					chiTietHoaDon.setSoluong(gioHang.getSoluong());
+					chiTietHoaDon.setTensanpham(gioHang.getTensp());
 					chiTietHoaDonService.ThemChiTietHoaDon(chiTietHoaDon);
 
 				}

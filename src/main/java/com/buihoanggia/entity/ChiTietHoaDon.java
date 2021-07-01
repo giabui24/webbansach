@@ -13,6 +13,7 @@ public class ChiTietHoaDon {
 	ChiTietHoaDonId chiTietHoaDonId;
 	int soluong;
 	int giatien;
+	String tensanpham;
 	public ChiTietHoaDon() {}
 	public ChiTietHoaDonId getChiTietHoaDonId() {
 		return chiTietHoaDonId;
@@ -31,6 +32,12 @@ public class ChiTietHoaDon {
 	}
 	public void setGiatien(int giatien) {
 		this.giatien = giatien;
+	}
+	public String getTensanpham() {
+		return tensanpham;
+	}
+	public void setTensanpham(String tensanpham) {
+		this.tensanpham = tensanpham;
 	}
 	
 

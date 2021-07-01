@@ -178,24 +178,8 @@
                                 </ul>
                             </li>
                         </ul>
-						<ul class="shipping__method">
-							<li>Phương thức thanh toán
-								<ul>
-									<li>
-										<input name="shipping_method[1]" data-index="1" value="legacy_flat_rate"
-											   checked="checked" type="radio">
-										<label>Cách 1</label>
-									</li>
-									<li>
-										<input name="shipping_method[1]" data-index="0" value="legacy_flat_rate"
-											   checked="checked" type="radio">
-										<label>Cách 2</label>
-									</li>
-								</ul>
-							</li>
-						</ul>
-                        <ul class="total__amount">
-                            <li>Tổng tiền <span><c:out value="${sum}"/>VND</span></li>
+                        <ul  class="total__amount" >
+                            <li id="sumamount" data-value ="<c:out value="${sum}"/>">Tổng tiền <span><c:out value="${sum}"/>VND</span></li>
                         </ul>
                          <div class="cartbox__btn  ">
                             <ul class="cart__btn__list d-flex flex-wrap flex-md-nowrap flex-lg-nowrap justify-content-between">

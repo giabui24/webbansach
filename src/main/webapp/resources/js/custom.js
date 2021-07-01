@@ -127,8 +127,10 @@ $("#dathang").click(function() {
 	var sonha = $("#sonha").val();
 	var diachi = sonha + "-" + phuong + "-" + quan + "-" + thanhpho + "-" + quocgia;
 	var hinhthucgiaohang = $("input[name='hinhthucgiaohang']:checked").val();
-
-
+    var username = $("#username").text();
+    var tongtien = $("#sumamount").attr("data-value");
+ 
+  
 	$.ajax({
 		url: "/minishop/thanhtoan/ThemHoaDon",
 		type: "GET",
@@ -136,9 +138,15 @@ $("#dathang").click(function() {
 			tenkhachhang: tenkhachhang,
 			sdt: sdt,
 			diachigiaohang: diachi,
-			hinhthucgiaohang: hinhthucgiaohang
+			hinhthucgiaohang: hinhthucgiaohang,
+			username:username,
+			tongtien:tongtien
 		},
 		success: function(value) {
+			alert("dathangthanhcong");
+			duongDanHienTai = window.location.href;
+				duongDan = duongDanHienTai.replace("thanhtoan/", "hoadon/");
+				window.location = duongDan;
 		}
 	})
 
@@ -199,6 +207,7 @@ $("#hinhanh").change(function(event) {
 
 });
 $("#btnThemsanpham").click(function(event) {
+	Validate();
 	event.preventDefault();
 	var formdata = $("#form-sanpham").serializeArray();
 	json = {};
@@ -223,6 +232,7 @@ $("#btnThemsanpham").click(function(event) {
 	json["chitietsanpham"] = arraychitiet;
 	json["hinhsanpham"] = tenhinh;
 	console.log(json);
+	if(Validate()== true){
 	$.ajax({
 		url: "/minishop/quanlysanpham/ThemSanPhamMoi",
 		type: "POST",
@@ -233,6 +243,9 @@ $("#btnThemsanpham").click(function(event) {
 			alert("Themsanphamthanhcong");
 		}
 	})
+	}
+		
+	
 })
 
 
@@ -318,5 +331,13 @@ $(document).ready(function() {
 		})
 	});
 });
+ function Validate() {
+	var tensanpham = $("#tensanpham").val();
+	if(tensanpham == " " && tensanpham == null){
+		$("#validatetensp").html("<p>"+"Mật khẩu không trùng khớp"+"</p>").css('color', 'red').css("margin-left", "2%");
+	}
+	return false;
+}
+	
 
 

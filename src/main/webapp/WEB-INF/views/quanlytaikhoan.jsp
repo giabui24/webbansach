@@ -89,8 +89,7 @@
                   <td>${user.getFirstName()} ${user.getLastName()}</td>
                   <td>${user.getEmail()}</td>
                   <td>${role.getName() }</td>
-                  <td>${user.getEnabled() }</td>
-
+                  <td>${user.getEnabled()}</td>
                   <td>
                     <div class="row justify-content-center">
                       <a href="">

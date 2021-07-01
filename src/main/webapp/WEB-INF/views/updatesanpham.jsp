@@ -191,7 +191,7 @@
                                 <i class="fa fa-plus-circle"></i> Cập nhật
                               </button>
                             </a>
-                            <a href="quanlisanpham.html">
+                            <a href='<c:url value="/quanlysanpham/"/>'>
                               <button type="button" class="btn btn-info text-right ml-1">
                                 <i class="fa fa-arrow-alt-circle-left"></i> Trở về
                               </button>

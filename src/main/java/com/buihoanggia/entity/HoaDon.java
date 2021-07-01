@@ -4,6 +4,7 @@ import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -21,8 +22,9 @@ String diachigiaohang;
 boolean tinhtrang;
 String ngaylap;
 String hinhthucgiaohang;
-int    userid;
-@OneToMany(cascade = CascadeType.ALL)
+String    username;
+double tongtien;
+@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
 @JoinColumn(name="mahoadon") 
 Set<ChiTietHoaDon> danhsachChiTietHoaDons;
 public HoaDon() {}
@@ -78,12 +80,22 @@ public void setNgaylap(String ngaylap) {
 	this.ngaylap = ngaylap;
 }
 
-public int getUserid() {
-	return userid;
+public String getUsername() {
+	return username;
 }
 
-public void setUserid(int userid) {
-	this.userid = userid;
+public void setUsername(String username) {
+	this.username = username;
 }
+
+public double getTongtien() {
+	return tongtien;
+}
+
+public void setTongtien(double tongtien) {
+	this.tongtien = tongtien;
+}
+
+
 
 }

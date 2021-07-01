@@ -102,7 +102,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="" class="nav-link">
+          <a href='<c:url value="/"/>' class="nav-link">
             <i class="nav-icon fas fa-th-list"></i>
             <p>
               Quản lý danh mục
@@ -118,7 +118,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="" class="nav-link">
+          <a href='<c:url value="/quanlysanpham/"/>' class="nav-link">
             <i class="nav-icon fa fa-book"></i>
             <p>
               Quản lý sản phẩm
@@ -127,7 +127,7 @@
         </li>
         <li class="nav-item">
          
-          <a href="" class="nav-link">
+          <a href='<c:url value="/quanlytaikhoan/"/>' class="nav-link">
             <i class="nav-icon fas fa-user"></i>
             <p>
               Quản lý tài khoản
@@ -135,7 +135,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="" class="nav-link">
+          <a href='<c:url value="/hoadon/quanlyhoadon/"/>' class="nav-link">
             <i class="nav-icon fas fa-money-bill"></i>
             <p>
               Quản lý hóa đơn
